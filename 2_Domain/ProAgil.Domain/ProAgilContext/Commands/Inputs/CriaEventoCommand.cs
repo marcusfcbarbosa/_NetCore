@@ -24,7 +24,7 @@ namespace ProAgil.Domain.ProAgilContext.Commands.Inputs
                     .IsNotNull(DataEvento,"DataEvento","DataEvento é obrigatório")
                     .HasMinLen(Local, 3,"Local"," Local deve conter pelo menos 3 caracteres")
                 );
-            return Valid();
+             return this.IsValid;
         }
     }
 }
