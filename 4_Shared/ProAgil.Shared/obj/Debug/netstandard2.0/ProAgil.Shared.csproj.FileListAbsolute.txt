@@ -1,0 +1,9 @@
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\bin\Debug\netstandard2.0\ProAgil.Shared.deps.json
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\bin\Debug\netstandard2.0\ProAgil.Shared.dll
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\bin\Debug\netstandard2.0\ProAgil.Shared.pdb
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\obj\Debug\netstandard2.0\ProAgil.Shared.csproj.CoreCompileInputs.cache
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\obj\Debug\netstandard2.0\ProAgil.Shared.AssemblyInfoInputs.cache
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\obj\Debug\netstandard2.0\ProAgil.Shared.AssemblyInfo.cs
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\obj\Debug\netstandard2.0\ProAgil.Shared.dll
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\obj\Debug\netstandard2.0\ProAgil.Shared.pdb
+C:\Users\marcu\Desktop\_NetCore\4_Shared\ProAgil.Shared\obj\Debug\netstandard2.0\ProAgil.Shared.csprojAssemblyReference.cache

@@ -1,0 +1,14 @@
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Infra.deps.json
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Infra.dll
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Infra.pdb
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.csprojAssemblyReference.cache
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.csproj.CoreCompileInputs.cache
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.AssemblyInfoInputs.cache
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.AssemblyInfo.cs
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.dll
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.pdb
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Domain.dll
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Shared.dll
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Domain.pdb
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\bin\Debug\netstandard2.0\ProAgil.Shared.pdb
+C:\Users\marcu\Desktop\_NetCore\3_Infra\ProAgil.Infra\obj\Debug\netstandard2.0\ProAgil.Infra.csproj.CopyComplete

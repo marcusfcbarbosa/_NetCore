@@ -12,3 +12,25 @@ dotnet new classlib -n ProAgil.Shared
 
 5- Criando a camada de teste
 dotnet new mstest -n ProAgil.Test
+
+6- Criando a Solution
+dotnet new sln
+
+7- Adicionando a referencia dos projetos
+dotnet sln add (caminho de todos os .csprojs)
+
+8- Adicionando Flunt
+dotnet add package FluentValidator --version 2.0.4
+
+9- Adicionando Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore --version 2.2.4
+
+10- instalando SqLite
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.4
+
+11- Instalando Swagger na Api
+dotnet add package Swashbuckle.AspNetCore
+
+12-Falta criar as migrations
+13- e recriar a base de dados
+14- ligar o app do angular

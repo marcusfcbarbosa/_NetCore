@@ -1,0 +1,14 @@
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.deps.json
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.runtimeconfig.json
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.runtimeconfig.dev.json
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.dll
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.pdb
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.csprojAssemblyReference.cache
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.csproj.CoreCompileInputs.cache
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.AssemblyInfoInputs.cache
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.AssemblyInfo.cs
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.dll
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.pdb

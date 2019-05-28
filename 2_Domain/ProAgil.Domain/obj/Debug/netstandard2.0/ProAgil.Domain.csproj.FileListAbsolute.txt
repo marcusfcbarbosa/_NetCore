@@ -1,0 +1,12 @@
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\bin\Debug\netstandard2.0\ProAgil.Domain.deps.json
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\bin\Debug\netstandard2.0\ProAgil.Domain.dll
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\bin\Debug\netstandard2.0\ProAgil.Domain.pdb
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.csprojAssemblyReference.cache
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.csproj.CoreCompileInputs.cache
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.AssemblyInfoInputs.cache
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.AssemblyInfo.cs
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.dll
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.pdb
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\bin\Debug\netstandard2.0\ProAgil.Shared.dll
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\bin\Debug\netstandard2.0\ProAgil.Shared.pdb
+C:\Users\marcu\Desktop\_NetCore\2_Domain\ProAgil.Domain\obj\Debug\netstandard2.0\ProAgil.Domain.csproj.CopyComplete
