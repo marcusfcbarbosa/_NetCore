@@ -1,0 +1,14 @@
+1- Iniciando Projeto
+dotnet new webapi -n ProAgil.WebApi
+
+2-criando dominio
+dotnet new classlib -n ProAgil.Domain
+
+3- criando a infra
+dotnet new classlib -n ProAgil.Infra
+
+4-Criando shared
+dotnet new classlib -n ProAgil.Shared
+
+5- Criando a camada de teste
+dotnet new mstest -n ProAgil.Test
