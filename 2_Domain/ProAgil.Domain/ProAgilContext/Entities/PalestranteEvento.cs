@@ -15,9 +15,9 @@ namespace ProAgil.Domain.ProAgilContext.Entities
             Id = Guid.NewGuid();
         }
         public Guid Id { get; private set; }
-        public int EventoId { get; private set; }
+        public Guid EventoId { get; private set; }
         public Evento Evento { get; private set; }
-        public int PalestranteId { get; private set; }
+        public Guid PalestranteId { get; private set; }
         public Palestrante Palestrante { get; private set; }
     }
 }

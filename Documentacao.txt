@@ -31,6 +31,15 @@ dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.4
 11- Instalando Swagger na Api
 dotnet add package Swashbuckle.AspNetCore
 
-12-Falta criar as migrations
+12-Falta criar as migrations (no infra) Para poder rodar as migrations
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.0
+Lemnbrando que o EF Core para criar as migrations necessita de um projeto cujo target seja .NetCore ao invés de um .NetStandard
+agora do projeto infra, referenciando o startup project externo cujo target é o .NetCore 
+Criando as migrations
+dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ migrations add init
+Criando a base de dados
+dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ database update
+
+
 13- e recriar a base de dados
 14- ligar o app do angular

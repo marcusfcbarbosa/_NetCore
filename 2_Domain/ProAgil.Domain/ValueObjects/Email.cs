@@ -6,6 +6,7 @@ namespace ProAgil.Domain.ValueObjects
 {
     public class Email : ValueObject
     {
+
         public Email(string address)
         {
             Address = address;

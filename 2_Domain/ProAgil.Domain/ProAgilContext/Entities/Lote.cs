@@ -26,7 +26,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
             public DateTime? DataInicio { get; private set; }
             public DateTime? DataFim { get; private set; }
             public int Quantidade { get; private set; }
-            public int EventoId { get; private set; }
+            public Guid EventoId { get; private set; }
             public Evento Evento {get; private set;}
     }
 }

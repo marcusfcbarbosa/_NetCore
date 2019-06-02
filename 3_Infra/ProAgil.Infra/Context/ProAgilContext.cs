@@ -22,6 +22,10 @@ namespace ProAgil.Infra.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             
+            modelBuilder.Ignore<Notifiable>();
+            modelBuilder.Ignore<Notification>();
+            modelBuilder.Ignore<Email>();
+
             modelBuilder.Entity<PalestranteEvento>()
                      .HasKey(ev => new { ev.EventoId, ev.PalestranteId});            
 
@@ -35,12 +39,11 @@ namespace ProAgil.Infra.Context
                 .WithMany(b => b.PalestranteEventos)
                 .HasForeignKey(bc => bc.PalestranteId);  
 
-            modelBuilder.Entity<Palestrante>().OwnsOne(x=>x.Email);
+            modelBuilder.Entity<Palestrante>();
             modelBuilder.Entity<Lote>();
             modelBuilder.Entity<RedeSocial>();
-            modelBuilder.Ignore<Notifiable>();
-            modelBuilder.Ignore<Notification>();
-            modelBuilder.Ignore<Email>();
+
+            
 
             base.OnModelCreating(modelBuilder);
         }
