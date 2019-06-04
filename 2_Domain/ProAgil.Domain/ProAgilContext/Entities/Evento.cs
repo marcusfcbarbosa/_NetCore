@@ -31,7 +31,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
                 this.QtdPessoas = qtdPessoas;
                 this.ImgUrl =imgUrl;
                 this.Telefone = telefone;
-
+                this.Email = email.Address;
                 _lotes = new List<Lote>();
                 _redesSociais = new List<RedeSocial>();
         }
@@ -41,7 +41,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public int QtdPessoas { get; private set; }
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
-        public Email Email {get; private set;}
+        public string Email {get; private set;}
         public IReadOnlyCollection<Lote> Lotes { get { return _lotes.ToArray(); } }
         public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}
         public List<PalestranteEvento>  PalestranteEventos {get;set;}

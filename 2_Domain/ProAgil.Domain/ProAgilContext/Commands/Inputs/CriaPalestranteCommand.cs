@@ -21,7 +21,7 @@ namespace ProAgil.Domain.ProAgilContext.Commands.Inputs
                     .HasMinLen(Nome, 3,"Nome"," Nome  Nome deve conter pelo menos 3 caracteres")
                     .HasMinLen(MiniCurriculo, 30,"MiniCurriculo","MiniCurriculo deve conter pelo menos 30 caracteres")
                 );
-            return this.IsValid;
+            return !this.Invalid;
         }
     }
 }

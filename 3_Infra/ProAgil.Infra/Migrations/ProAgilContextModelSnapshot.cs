@@ -19,29 +19,45 @@ namespace ProAgil.Infra.Migrations
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.Evento", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("lower(hex(randomblob(16)))");
 
                     b.Property<DateTime>("DataEvento");
 
-                    b.Property<string>("ImgUrl");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
 
-                    b.Property<string>("Local");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
-                    b.Property<int>("QtdPessoas");
+                    b.Property<string>("Local")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<int>("QtdPessoas")
+                        .IsUnicode(false);
 
                     b.Property<string>("Telefone");
 
-                    b.Property<string>("Tema");
+                    b.Property<string>("Tema")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Eventos");
+                    b.ToTable("Evento");
                 });
 
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.Lote", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("lower(hex(randomblob(16)))");
 
                     b.Property<DateTime?>("DataFim");
 
@@ -49,37 +65,55 @@ namespace ProAgil.Infra.Migrations
 
                     b.Property<Guid>("EventoId");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
-                    b.Property<decimal>("Preco");
+                    b.Property<decimal>("Preco")
+                        .IsUnicode(false);
 
-                    b.Property<int>("Quantidade");
+                    b.Property<int>("Quantidade")
+                        .IsUnicode(false);
 
                     b.HasKey("Id");
 
                     b.HasIndex("EventoId");
 
-                    b.ToTable("Lotes");
+                    b.ToTable("Lote");
                 });
 
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.Palestrante", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("lower(hex(randomblob(16)))");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
 
                     b.Property<Guid>("EventoId");
 
-                    b.Property<string>("ImgUrl");
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
-                    b.Property<string>("MiniCurriculo");
+                    b.Property<string>("MiniCurriculo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
                     b.Property<string>("Telefone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Palestrantes");
+                    b.ToTable("Palestrante");
                 });
 
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.PalestranteEvento", b =>
@@ -88,27 +122,34 @@ namespace ProAgil.Infra.Migrations
 
                     b.Property<Guid>("PalestranteId");
 
-                    b.Property<Guid>("Id");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("lower(hex(randomblob(16)))");
 
                     b.HasKey("EventoId", "PalestranteId");
 
                     b.HasIndex("PalestranteId");
 
-                    b.ToTable("PalestranteEventos");
+                    b.ToTable("PalestranteEvento");
                 });
 
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.RedeSocial", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("lower(hex(randomblob(16)))");
 
                     b.Property<Guid?>("EventoId");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
                     b.Property<Guid?>("PalestranteId");
 
-                    b.Property<string>("Url");
+                    b.Property<string>("Url")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
                     b.HasKey("Id");
 
@@ -116,7 +157,7 @@ namespace ProAgil.Infra.Migrations
 
                     b.HasIndex("PalestranteId");
 
-                    b.ToTable("RedeSociais");
+                    b.ToTable("RedeSocial");
                 });
 
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.Lote", b =>

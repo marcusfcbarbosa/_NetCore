@@ -35,7 +35,7 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
             _palestranteRepository.SaveChangesAsync();
             return new CriaPalestranteCommandResult(true,"Bem vindo",new {
                         Id = palestrante.Id,
-                        Email = palestrante.Email.Address
+                        Email = palestrante.Email
             });
             
         }

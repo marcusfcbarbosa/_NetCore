@@ -35,7 +35,7 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
             _eventoRepository.SaveChangesAsync();
             return new CriaEventoCommandResult(true,"Bem vindo",new {
                         Id = evento.Id,
-                        Email = evento.Email.Address
+                        Email = evento.Email
             });
         }
     }

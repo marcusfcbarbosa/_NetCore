@@ -22,7 +22,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
             MiniCurriculo = miniCurriculo;
             ImgUrl = imgUrl;
             Telefone = telefone;
-            Email = email;
+            Email = email.Address;
             _redesSociais = new List<RedeSocial>();
          
         }
@@ -30,7 +30,8 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string MiniCurriculo { get; private set; }
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
-        public Email Email { get; private set; }
+        public string Email { get; private set; }
+    
         public Guid EventoId {get; private set;}
         //Associativa
         public List<PalestranteEvento>  PalestranteEventos {get;set;}

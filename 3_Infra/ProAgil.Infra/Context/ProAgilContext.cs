@@ -39,13 +39,92 @@ namespace ProAgil.Infra.Context
                 .WithMany(b => b.PalestranteEventos)
                 .HasForeignKey(bc => bc.PalestranteId);  
 
-            modelBuilder.Entity<Palestrante>();
-            modelBuilder.Entity<Lote>();
-            modelBuilder.Entity<RedeSocial>();
-
-            
-
+            EntityMapping(modelBuilder);
             base.OnModelCreating(modelBuilder);
+        }
+
+
+        private void EntityMapping(ModelBuilder modelBuilder){
+                modelBuilder.Entity<Palestrante>(entity =>  
+                {  
+                    entity.ToTable("Palestrante");  
+                    entity.Property(e => e.Id).HasDefaultValueSql("lower(hex(randomblob(16)))");
+
+                    
+                    entity.Property(e => e.Nome)  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.MiniCurriculo)  
+                        .IsRequired()  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.ImgUrl)  
+                        .IsRequired()  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.Email)  
+                        .IsRequired()  
+                        .HasMaxLength(50)  
+                        .IsUnicode(false); 
+            });  
+            modelBuilder.Entity<Evento>(entity =>  
+                {  
+                    entity.ToTable("Evento");  
+                    entity.Property(e => e.Id).HasDefaultValueSql("lower(hex(randomblob(16)))");
+                    entity.Property(e => e.Local)  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.Tema)  
+                        .IsRequired()  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.ImgUrl)  
+                        .IsRequired()  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.QtdPessoas)  
+                        .IsRequired()  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.Email)  
+                        .IsRequired()  
+                        .HasMaxLength(50)  
+                        .IsUnicode(false);
+            });  
+
+            modelBuilder.Entity<PalestranteEvento>(entity =>  
+                {  
+                    entity.ToTable("PalestranteEvento");  
+                    entity.Property(e => e.Id).HasDefaultValueSql("lower(hex(randomblob(16)))");
+            });  
+            modelBuilder.Entity<Lote>(entity =>  
+                {  
+                    entity.ToTable("Lote");  
+                    entity.Property(e => e.Id).HasDefaultValueSql("lower(hex(randomblob(16)))");
+                    entity.Property(e => e.Nome)  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.Preco)  
+                        .IsRequired()  
+                        .IsUnicode(false);  
+                    entity.Property(e => e.Quantidade)  
+                        .IsRequired()  
+                        .IsUnicode(false);  
+            });
+
+            modelBuilder.Entity<RedeSocial>(entity =>  
+                {  
+                    entity.ToTable("RedeSocial");  
+
+                    entity.Property(e => e.Id).HasDefaultValueSql("lower(hex(randomblob(16)))");
+
+                    entity.Property(e => e.Nome)  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+
+                    entity.Property(e => e.Url)  
+                        .HasMaxLength(100)  
+                        .IsUnicode(false);  
+            });
         }
     }
 }

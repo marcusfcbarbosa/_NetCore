@@ -4,6 +4,7 @@ using FluentValidator;
 
 namespace ProAgil.Shared.Entities
 {
+    
     public abstract class Entity : Notifiable
     {
         public Entity(){
