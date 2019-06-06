@@ -1,38 +1,37 @@
 1- Iniciando Projeto
 dotnet new webapi -n ProAgil.WebApi
-
+=========================================================
 2-criando dominio
 dotnet new classlib -n ProAgil.Domain
-
+=========================================================
 3- criando a infra
 dotnet new classlib -n ProAgil.Infra
-
+=========================================================
 4-Criando shared
 dotnet new classlib -n ProAgil.Shared
-
+=========================================================
 5- Criando a camada de teste
 dotnet new mstest -n ProAgil.Test
-
+=========================================================
 6- Criando a Solution
 dotnet new sln
-
+=========================================================
 7- Adicionando a referencia dos projetos
 dotnet sln add (caminho de todos os .csprojs)
-
+=========================================================
 8- Adicionando Flunt
 dotnet add package FluentValidator --version 2.0.4
-
+=========================================================
 9- Adicionando Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore --version 2.2.4
-
+=========================================================
 10- instalando SqLite
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.4
-
+=========================================================
 11- Instalando Swagger na Api
 dotnet add package Swashbuckle.AspNetCore
-
-12-Falta criar as migrations (no infra) Para poder rodar as migrations, recriar a base de dados
-
+============================================================================
+12-Criando as migrations e apontando como startup o projecto cujo target é .NetCore
 
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.0
 Lemnbrando que o EF Core para criar as migrations necessita de um projeto cujo target seja .NetCore ao invés de um .NetStandard
@@ -43,21 +42,21 @@ Criando a base de dados
 dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ database update
 
 
-14- ligar o app do angular
+12.1- ligar o app do angular
 npm install -g @angular/cli
 
 https://cli.angular.io/
 
 ng new ProAgil-App
 
-14.1-
+12.2-
         -rodar a aplicação angular 
         ng serve
         
 
         -- para gerar node_modules e baixr as dependencias:
         /ProAgil-App npm install
-===================
+============================================================================
 -Extensões importantes angular VS Code
 
 angular files
@@ -75,5 +74,34 @@ Path Intellisense (Facilita encontrar rotas de arquivos .json)
 Prettier Code Formatter
 TSLint (padrões nas formas de codificação)
 Visual Studio KeyMap
-==================
+========================================================================
+13- Request Http no angular (requisições Http)
 
+app.modules.ts
+
+import { HttpClientModule } from '@angular/common/http';
+
+imports: [
+     HttpClientModule
+  ],
+
+e dentro do construct do typescript do componente, se injeta a dependencia
+eventos.component.ts
+
+import { HttpClient } from '@angular/common/http';
+
+  constructor(private http: HttpClient) { }
+  ngOnInit() { 
+    this.getEventos();
+   }
+
+  getEventos() {
+    this.eventos = this.http.get('http://localhost:5000/api/eventos').subscribe(
+        response =>  { 
+          this.eventos = response;
+         }, error =>{
+           console.log(error);
+         }
+    );
+  }
+========================================================================

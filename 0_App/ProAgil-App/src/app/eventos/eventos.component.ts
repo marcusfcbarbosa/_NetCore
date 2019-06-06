@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-eventos',
@@ -31,9 +33,18 @@ export class EventosComponent implements OnInit {
   ];
 
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private http: HttpClient) { }
+  ngOnInit() { 
+    this.getEventos();
+   }
+  //metodo que preenche o objeto declarado 
+  getEventos() {
+    this.eventos = this.http.get('http://localhost:5000/api/eventos').subscribe(
+        response =>  { 
+          this.eventos = response;
+         }, error =>{
+           console.log(error);
+         }
+    );
   }
-
 }
