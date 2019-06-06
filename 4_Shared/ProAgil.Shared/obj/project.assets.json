@@ -42,7 +42,7 @@
   },
   "libraries": {
     "FluentValidator/2.0.4": {
-      "sha512": "s0uyVEpMHmtppDdAejirC5A6dgU841Kpb5F5UtPuMpFnFiIepv2tLW4OgA9A/9Vzr7WRaB4dliCFGWwZ5zV1Vw==",
+      "sha512": "px1HWHYBD20PuCUgz/mEl/QcBsikW5nbdtR5whllwMIyJ4FJs03nGXe5ocHEre/x3CX72hJBnX7bteqkZwlcfA==",
       "type": "package",
       "path": "fluentvalidator/2.0.4",
       "files": [
@@ -54,12 +54,11 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -204,23 +203,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marcu\\.nuget\\packages\\": {},
+    "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marcu\\Desktop\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj",
       "projectName": "ProAgil.Shared",
-      "projectPath": "C:\\Users\\marcu\\Desktop\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj",
-      "packagesPath": "C:\\Users\\marcu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marcu\\Desktop\\_NetCore\\4_Shared\\ProAgil.Shared\\obj\\",
+      "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj",
+      "packagesPath": "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\marcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marcus.barbosa.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

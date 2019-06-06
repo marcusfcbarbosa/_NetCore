@@ -44,14 +44,14 @@
     "FluentValidator/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-s0uyVEpMHmtppDdAejirC5A6dgU841Kpb5F5UtPuMpFnFiIepv2tLW4OgA9A/9Vzr7WRaB4dliCFGWwZ5zV1Vw==",
+      "sha512": "sha512-px1HWHYBD20PuCUgz/mEl/QcBsikW5nbdtR5whllwMIyJ4FJs03nGXe5ocHEre/x3CX72hJBnX7bteqkZwlcfA==",
       "path": "fluentvalidator/2.0.4",
       "hashPath": "fluentvalidator.2.0.4.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },

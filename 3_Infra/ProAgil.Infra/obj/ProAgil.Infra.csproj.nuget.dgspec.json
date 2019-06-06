@@ -1,0 +1,192 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\3_Infra\\ProAgil.Infra\\ProAgil.Infra.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\2_Domain\\ProAgil.Domain\\ProAgil.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\2_Domain\\ProAgil.Domain\\ProAgil.Domain.csproj",
+        "projectName": "ProAgil.Domain",
+        "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\2_Domain\\ProAgil.Domain\\ProAgil.Domain.csproj",
+        "packagesPath": "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\2_Domain\\ProAgil.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marcus.barbosa.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj": {
+                "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "FluentValidator": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\3_Infra\\ProAgil.Infra\\ProAgil.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\3_Infra\\ProAgil.Infra\\ProAgil.Infra.csproj",
+        "projectName": "ProAgil.Infra",
+        "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\3_Infra\\ProAgil.Infra\\ProAgil.Infra.csproj",
+        "packagesPath": "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\3_Infra\\ProAgil.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marcus.barbosa.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\2_Domain\\ProAgil.Domain\\ProAgil.Domain.csproj": {
+                "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\2_Domain\\ProAgil.Domain\\ProAgil.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "FluentValidator": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj",
+        "projectName": "ProAgil.Shared",
+        "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\ProAgil.Shared.csproj",
+        "packagesPath": "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\4_Shared\\ProAgil.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marcus.barbosa.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "FluentValidator": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

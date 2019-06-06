@@ -43,9 +43,6 @@ Criando a base de dados
 dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ database update
 
 
-
-
-
 14- ligar o app do angular
 npm install -g @angular/cli
 
@@ -55,3 +52,19 @@ ng new ProAgil-App
 
 -rodar o projeto
 ng serve -o
+===================
+-Extensões importantes angular VS Code
+angular files
+angular Language service
+angular2-switcher (snippets e testes)
+Auto Rename Tag (tags html )
+Bracket Pair Colorizer
+C# Extensions
+Debbuger for Chrome
+Live Server (para trabalhar com arquivos html)
+Material Icon Theme
+npm
+nuget package manager
+Path Intellisense (Facilita encontrar rotas de arquivos .json)
+Prettier Code Formatter
+TSLint (padrões nas formas de codificação)
