@@ -8,6 +8,6 @@ namespace ProAgil.Domain.ProAgilContext.Repositories.Interfaces
     {
          Task<Evento[]>  GetAllEventosAsyncBytTema(string tema, bool includePalestrantes);
          Task<Evento[]>  GetAllEventosAsync(bool includePalestrantes = false);
-         Task<Evento>  GetAllEventosAsyncById(Guid id,bool includePalestrantes = false);
+         Task<Evento>  GetAllEventosAsyncById(String id,bool includePalestrantes = false);
     }
 }

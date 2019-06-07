@@ -48,7 +48,7 @@ namespace ProAgil.Infra.Repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Evento> GetAllEventosAsyncById(Guid id,bool includePalestrantes = false)
+        public async Task<Evento> GetAllEventosAsyncById(string id,bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _context.Eventos
             .Include(c=>c.Lotes)

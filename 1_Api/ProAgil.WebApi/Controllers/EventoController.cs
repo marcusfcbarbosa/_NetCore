@@ -28,14 +28,14 @@ namespace ProAgil.WebApi.Controllers
                  var results = await _eventoRepository.GetAllEventosAsync(false);
                 return Ok(results);
             }
-            catch (System.Exception)
+            catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha interna");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
+        public async Task<IActionResult> Get(String id)
         {
             var result = await _eventoRepository.GetAllEventosAsyncById(id,false);
             return Ok(result);

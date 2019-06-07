@@ -11,7 +11,7 @@ namespace ProAgil.Infra.Migrations
                 name: "Evento",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
                     Local = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     DataEvento = table.Column<DateTime>(nullable: false),
                     Tema = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
@@ -29,13 +29,13 @@ namespace ProAgil.Infra.Migrations
                 name: "Palestrante",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
                     Nome = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     MiniCurriculo = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
                     ImgUrl = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
                     Telefone = table.Column<string>(nullable: true),
                     Email = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
-                    EventoId = table.Column<Guid>(nullable: false)
+                    EventoId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,13 +46,13 @@ namespace ProAgil.Infra.Migrations
                 name: "Lote",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
                     Nome = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     Preco = table.Column<decimal>(unicode: false, nullable: false),
                     DataInicio = table.Column<DateTime>(nullable: true),
                     DataFim = table.Column<DateTime>(nullable: true),
                     Quantidade = table.Column<int>(unicode: false, nullable: false),
-                    EventoId = table.Column<Guid>(nullable: false)
+                    EventoId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,16 +62,16 @@ namespace ProAgil.Infra.Migrations
                         column: x => x.EventoId,
                         principalTable: "Evento",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "PalestranteEvento",
                 columns: table => new
                 {
-                    EventoId = table.Column<Guid>(nullable: false),
-                    PalestranteId = table.Column<Guid>(nullable: false),
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))")
+                    EventoId = table.Column<string>(nullable: false),
+                    PalestranteId = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))")
                 },
                 constraints: table =>
                 {
@@ -94,11 +94,11 @@ namespace ProAgil.Infra.Migrations
                 name: "RedeSocial",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
                     Nome = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     Url = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
-                    EventoId = table.Column<Guid>(nullable: true),
-                    PalestranteId = table.Column<Guid>(nullable: true)
+                    EventoId = table.Column<string>(nullable: true),
+                    PalestranteId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

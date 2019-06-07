@@ -32,7 +32,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string Telefone { get; private set; }
         public string Email { get; private set; }
     
-        public Guid EventoId {get; private set;}
+        public String EventoId {get; private set;}
         //Associativa
         public List<PalestranteEvento>  PalestranteEventos {get;set;}
         public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}

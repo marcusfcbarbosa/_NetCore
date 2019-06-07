@@ -43,6 +43,7 @@ namespace ProAgil.WebApi
                 options.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddCors();
         }
         public void registrandoDependencias(IServiceCollection services)
         {

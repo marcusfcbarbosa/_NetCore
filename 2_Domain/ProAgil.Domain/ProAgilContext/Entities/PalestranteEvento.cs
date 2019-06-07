@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ProAgil.Shared.Entities;
 
 namespace ProAgil.Domain.ProAgilContext.Entities
 {
-    public class PalestranteEvento 
+    public class PalestranteEvento : Entity
     {
         protected PalestranteEvento(){}
 
@@ -12,12 +13,12 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         {
             Evento = evento;
             Palestrante = palestrante;
-            Id = Guid.NewGuid();
+        
         }
-        public Guid Id { get; private set; }
-        public Guid EventoId { get; private set; }
+        
+        public String EventoId { get; private set; }
         public Evento Evento { get; private set; }
-        public Guid PalestranteId { get; private set; }
+        public String PalestranteId { get; private set; }
         public Palestrante Palestrante { get; private set; }
     }
 }

@@ -40,6 +40,8 @@ Criando as migrations
 dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ migrations add init
 Criando a base de dados
 dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ database update
+Remover a migrations
+dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ migrations remove
 
 
 12.1- ligar o app do angular
@@ -104,4 +106,24 @@ import { HttpClient } from '@angular/common/http';
          }
     );
   }
+========================================================================  
+  Rota Base: http://localhost:5000/api
+
+  Rota Base: http://localhost:5000/api/evento
+========================================================================
+16- Template bootstrap fontawesome gratuito
+
+0_App/ProAgil-App/npm install bootstrap
+0_App/ProAgil-App/npm install --save @fortawesome/fontawesome-free
+
+Por padrão o arquivo na raiz da aplicação angular angular.json
+ "styles": [
+   "src/styles.css"
+ ],
+
+ Dessa forma dentro do arquivo em questão, 
+ styles.css
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 ========================================================================
