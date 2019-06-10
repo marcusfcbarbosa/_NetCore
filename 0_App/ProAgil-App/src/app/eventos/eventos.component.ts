@@ -16,14 +16,59 @@ export class EventosComponent implements OnInit {
   ngOnInit() {
     this.getEventos();
   }
+  getRetornoPadrao() {
+    return [
+      {
+        id: 1,
+        local: 'Sao Paulo',
+        dataEvento: '29/05/1986',
+        tema: 'Banco Rendimento',
+        qtdPessoas: 200,
+        imgUrl: 'img1.jpg',
+        telefone: '11487578758',
+        email: 'marcus@teste.com'
+      },
+      {
+        id: 2,
+        local: 'Sao Paulo',
+        dataEvento: '29/05/1986',
+        tema: 'Banco Rendimento',
+        qtdPessoas: 200,
+        imgUrl: 'img2.jpg',
+        telefone: '11487578758',
+        email: 'marcus@teste.com'
+      },{
+        id: 3,
+        local: 'Sao Paulo',
+        dataEvento: '29/05/1986',
+        tema: 'Banco Rendimento',
+        qtdPessoas: 200,
+        imgUrl: 'img3.jpg',
+        telefone: '11487578758',
+        email: 'marcus@teste.com'
+      },{
+        id: 4,
+        local: 'Sao Paulo',
+        dataEvento: '29/05/1986',
+        tema: 'Banco Rendimento',
+        qtdPessoas: 200,
+        imgUrl: 'img4.jpg',
+        telefone: '11487578758',
+        email: 'marcus@teste.com'
+      }
+    ];
+  }
 
-  getEventos() {
+ getEventos() {
     this.eventos = this.http.get('http://localhost:5000/api/evento').subscribe(
-        response =>{
-          this.eventos = response;
-         }, error =>{
-           console.log(error);
-         }
+      response => {
+        this.eventos = response;
+        if (this.eventos.length === 0) {
+          this.eventos = this.getRetornoPadrao();
+        }
+      }, error => {
+        console.log(error);
+      }
     );
   }
 }

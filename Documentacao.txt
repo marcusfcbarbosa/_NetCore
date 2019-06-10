@@ -111,7 +111,7 @@ import { HttpClient } from '@angular/common/http';
 
   Rota Base: http://localhost:5000/api/evento
 ========================================================================
-16- Template bootstrap fontawesome gratuito
+14- Template bootstrap fontawesome gratuito
 
 0_App/ProAgil-App/npm install bootstrap
 0_App/ProAgil-App/npm install --save @fortawesome/fontawesome-free
