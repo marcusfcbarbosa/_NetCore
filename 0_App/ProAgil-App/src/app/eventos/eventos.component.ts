@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../_services/evento.service';
+import { Evento } from '../_models/Evento';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { EventoService } from '../_services/evento.service';
 })
 
 export class EventosComponent implements OnInit {
+
   _filtroLista: string;
   get filtroLista(): string {
     return this._filtroLista;
@@ -19,21 +21,21 @@ export class EventosComponent implements OnInit {
     this.eventosFiltrados = this.filtroLista ? this.filtrarEvento(this.filtroLista) : this.eventos;
   }
 
-  eventosFiltrados: any = [];
-  eventos: any;
+  eventosFiltrados: Evento[];
+  eventos: Evento[];
   imagemLargura = 100;
   imagemMargem = 2;
   mostrarImagem = false;
 
 
-  constructor(private eventoService:EventoService) {
+  constructor(private eventoService: EventoService) {
   }
 
   ngOnInit() {
     this.getEventos();
   }
 
-  filtrarEvento(filtrarPor: string): any {
+  filtrarEvento(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
       evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
@@ -43,57 +45,13 @@ export class EventosComponent implements OnInit {
   alternarImagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
-  getRetornoPadrao() {
-    return [
-      {
-        id: 1,
-        local: 'Sao Paulo',
-        dataEvento: '29/05/1986',
-        tema: 'Banco Rendimento',
-        qtdPessoas: 200,
-        imgUrl: 'img1.jpg',
-        telefone: '11487578758',
-        email: 'marcus@teste.com'
-      },
-      {
-        id: 2,
-        local: 'Sao Paulo',
-        dataEvento: '29/05/1986',
-        tema: 'Banco Rendimento',
-        qtdPessoas: 200,
-        imgUrl: 'img2.jpg',
-        telefone: '11487578758',
-        email: 'marcus@teste.com'
-      }, {
-        id: 3,
-        local: 'Sao Paulo',
-        dataEvento: '29/05/1986',
-        tema: 'Banco Rendimento',
-        qtdPessoas: 200,
-        imgUrl: 'img3.jpg',
-        telefone: '11487578758',
-        email: 'marcus@teste.com'
-      }, {
-        id: 4,
-        local: 'Sao Paulo',
-        dataEvento: '29/05/1986',
-        tema: 'Banco Rendimento',
-        qtdPessoas: 200,
-        imgUrl: 'img4.jpg',
-        telefone: '11487578758',
-        email: 'marcus@teste.com'
-      }
-    ];
-  }
+ 
 
   getEventos() {
     this.eventos = this.eventoService.getAllEventos().subscribe(
-      response => {
-        this.eventos = response;
-        this.eventosFiltrados = response;
-        if (this.eventos.length === 0) {
-          this.eventos = this.getRetornoPadrao();
-        }
+      (_eventos: Evento[]) => {
+        this.eventos = _eventos;
+        this.eventosFiltrados = _eventos;
       }, error => {
         console.log(error);
       }
