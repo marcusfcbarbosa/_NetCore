@@ -170,3 +170,4 @@ Depois (Agora funciona)
 </div>
 <h3>Filtro:{{ filtroLista }}</h3>
 ========================================================================
+Continuando aula 57

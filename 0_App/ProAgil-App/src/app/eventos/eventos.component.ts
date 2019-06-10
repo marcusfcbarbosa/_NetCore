@@ -40,13 +40,10 @@ export class EventosComponent implements OnInit {
     return this.eventos.filter(
       evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
     );
-
   }
   alternarImagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
- 
-
   getEventos() {
     this.eventos = this.eventoService.getAllEventos().subscribe(
       (_eventos: Evento[]) => {
