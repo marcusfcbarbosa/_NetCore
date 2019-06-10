@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +17,6 @@ namespace ProAgil.Infra.Repository
         {
             _context = context;
         }
-        
         public async Task<Evento[]> GetAllEventosAsyncBytTema(string tema, bool includePalestrantes)
         {
             IQueryable<Evento> query = _context.Eventos
@@ -48,7 +48,7 @@ namespace ProAgil.Infra.Repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Evento> GetAllEventosAsyncById(string id,bool includePalestrantes = false)
+        public async Task<Evento> GetAllEventosAsyncById(int id,bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _context.Eventos
             .Include(c=>c.Lotes)
@@ -63,11 +63,10 @@ namespace ProAgil.Infra.Repository
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task<bool> SaveChangesAsync()
+        public IEnumerable<Evento> GetAll()
         {
-            return await SaveChangesAsync();
+            IEnumerable<Evento> query = _context.Eventos.ToList();
+            return query;
         }
-
-        
     }
 }

@@ -21,11 +21,11 @@ namespace ProAgil.WebApi.Controllers
         }
 
         [HttpGet("")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             try
             {
-                 var results = await _eventoRepository.GetAllEventosAsync(false);
+                var results =  _eventoRepository.GetAll();
                 return Ok(results);
             }
             catch (Exception ex)
@@ -35,7 +35,7 @@ namespace ProAgil.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(String id)
+        public async Task<IActionResult> Get(int id)
         {
             var result = await _eventoRepository.GetAllEventosAsyncById(id,false);
             return Ok(result);
@@ -45,8 +45,8 @@ namespace ProAgil.WebApi.Controllers
         public async Task<IActionResult> Post([FromBody]CriaEventoCommand command){
             try{
                 return Ok(_eventoHandler.Handle(command));
-            }catch(System.Exception){
-                    return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha interna");
+            }catch(Exception ex){
+                    return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
     }

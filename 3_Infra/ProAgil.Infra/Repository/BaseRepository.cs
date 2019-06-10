@@ -1,57 +1,60 @@
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-
 using ProAgil.Domain.ProAgilContext.Repositories.Interfaces;
 using ProAgil.Infra.Context;
+using ProAgil.Shared.Interfaces;
 
 namespace ProAgil.Infra.Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity>
+         where TEntity : class, IEntity
     {
         private readonly ProAgilContext _context;
-        protected DbSet<T> DbSet;
-        
-        public BaseRepository(ProAgilContext context){
-            _context = context;
-            DbSet = context.Set<T>();
+
+        public BaseRepository(ProAgilContext context) => _context = context;
+
+        public void Create(TEntity entity)
+        {
+            _context.Set<TEntity>().Add(entity);
         }
 
-        public void Add(T entity)
+        public void Delete(TEntity entity)
         {
-            _context.Set<T>().Add(entity);
-            Save();
+            _context.Set<TEntity>().Remove(entity);
         }
 
-        public void Delete(T entity)
+        public void Delete(int id)
         {
-            _context.Set<T>().Remove(entity);
-            Save();
-        }
-        public void Update(T entity)
-        {
-               _context.Entry<T>(entity).State = EntityState.Modified;
-               Save();
-        }
-        public T GetById(long id)
-        {
-            throw new NotImplementedException();
+            var entityToDelete = _context.Set<TEntity>().FirstOrDefault(e => e.Id == id);
+            if (entityToDelete != null)
+            {
+                _context.Set<TEntity>().Remove(entityToDelete);
+            }
         }
 
-        public T GetById(Guid id)
+        public void Edit(TEntity entity)
         {
-            throw new NotImplementedException();
+            var editedEntity = _context.Set<TEntity>().FirstOrDefault(e => e.Id == entity.Id);
+            editedEntity = entity;
         }
 
-        public async Task<bool> SaveChangesAsync()
+        public TEntity GetById(int id)
         {
-           return ( await _context.SaveChangesAsync() > 0);
+            return _context.Set<TEntity>().FirstOrDefault(e => e.Id == id);
         }
-        private void Save()
+
+        public IEnumerable<TEntity> Filter()
         {
-           _context.SaveChanges();
+            return _context.Set<TEntity>();
         }
+
+        public IEnumerable<TEntity> Filter(Func<TEntity, bool> predicate)
+        {
+            return _context.Set<TEntity>().Where(predicate);
+        }
+
+        public void SaveChanges() => _context.SaveChanges();
     }
 }

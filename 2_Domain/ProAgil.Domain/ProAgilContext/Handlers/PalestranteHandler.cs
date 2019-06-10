@@ -31,8 +31,8 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
                  return  new CriaPalestranteCommandResult(false,"Campos enviados com erro", Notifications);
             }
 
-            _palestranteRepository.Add(palestrante);
-            _palestranteRepository.SaveChangesAsync();
+            _palestranteRepository.Create(palestrante);
+            _palestranteRepository.SaveChanges();
             return new CriaPalestranteCommandResult(true,"Bem vindo",new {
                         Id = palestrante.Id,
                         Email = palestrante.Email

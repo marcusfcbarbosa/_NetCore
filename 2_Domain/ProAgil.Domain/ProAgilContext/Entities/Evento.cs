@@ -3,9 +3,6 @@ using ProAgil.Shared.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentValidator;
-using FluentValidator.Validation;
-
 
 namespace ProAgil.Domain.ProAgilContext.Entities
 {
@@ -13,27 +10,28 @@ namespace ProAgil.Domain.ProAgilContext.Entities
     {
         private readonly IList<Lote> _lotes;
         private readonly IList<RedeSocial> _redesSociais;
-       
-        private Evento(){}
+
+        protected Evento() { }
         public Evento(
                 string local,
                 DateTime dataEvento,
-                string tema,int qtdPessoas,
+                string tema, int qtdPessoas,
                 string imgUrl,
                 string telefone,
-                Email email){
+                Email email)
+        {
 
-                AddNotifications(email);
+            AddNotifications(email);
 
-                this.Local = local;
-                this.DataEvento = dataEvento;
-                this.Tema = tema;
-                this.QtdPessoas = qtdPessoas;
-                this.ImgUrl =imgUrl;
-                this.Telefone = telefone;
-                this.Email = email.Address;
-                _lotes = new List<Lote>();
-                _redesSociais = new List<RedeSocial>();
+            this.Local = local;
+            this.DataEvento = dataEvento;
+            this.Tema = tema;
+            this.QtdPessoas = qtdPessoas;
+            this.ImgUrl = imgUrl;
+            this.Telefone = telefone;
+            this.Email = email.Address;
+            _lotes = new List<Lote>();
+            _redesSociais = new List<RedeSocial>();
         }
         public string Local { get; private set; }
         public DateTime DataEvento { get; private set; }
@@ -41,16 +39,34 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public int QtdPessoas { get; private set; }
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
-        public string Email {get; private set;}
-        public IReadOnlyCollection<Lote> Lotes { get { return _lotes.ToArray(); } }
-        public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}
-        public List<PalestranteEvento>  PalestranteEventos {get;set;}
-        public void AdicionaRedeSocial(RedeSocial redeSocial){
+        public String Email { get; private set; }
+        public IReadOnlyCollection<Lote> Lotes
+        {
+            get
+            {
+                if (_lotes != null)
+                    return _lotes.ToArray();
+                else
+                    return default(List<Lote>);
+            }
+        }
+        public IReadOnlyCollection<RedeSocial> RedesSociais { get
+            {
+                if (_redesSociais != null)
+                    return _redesSociais.ToArray();
+                else
+                    return default(List<RedeSocial>);
+            }
+        }
+
+        public List<PalestranteEvento> PalestranteEventos { get; set; }
+        public void AdicionaRedeSocial(RedeSocial redeSocial)
+        {
             this._redesSociais.Add(redeSocial);
         }
-        public void AdicionaLote(Lote lote){
-                this._lotes.Add(lote);
+        public void AdicionaLote(Lote lote)
+        {
+            this._lotes.Add(lote);
         }
-         
     }
 }

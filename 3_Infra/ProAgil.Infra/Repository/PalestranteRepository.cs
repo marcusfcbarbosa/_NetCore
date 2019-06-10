@@ -32,7 +32,7 @@ namespace ProAgil.Infra.Repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Palestrante> GetAllPalestrantesAsyncById(String id)
+        public async Task<Palestrante> GetAllPalestrantesAsyncById(int id)
         {
             return await _context.Palestrantes.FirstOrDefaultAsync(x=>x.Id == id);
         }
@@ -48,7 +48,7 @@ namespace ProAgil.Infra.Repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Palestrante> GetAllPalestrantesAsyncById(String id, bool includeEvento = false)
+        public async Task<Palestrante> GetAllPalestrantesAsyncById(int id, bool includeEvento = false)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
             .Include(c=>c.RedesSociais)

@@ -20,7 +20,10 @@
   </thead>
   <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let evento of eventos">
-      <td> {{evento.imgUrl}} </td>
+      <td> 
+        <img src="http://500">
+        {{evento.imgUrl}} 
+      </td>
       <td> {{evento.tema}} </td>
       <td> {{evento.local}} </td>
       <td> {{evento.dataEvento}} </td>

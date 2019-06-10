@@ -11,14 +11,17 @@ namespace ProAgil.Infra.Migrations
                 name: "Evento",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
-                    Local = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    identifyer = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Local = table.Column<string>(maxLength: 100, nullable: true),
                     DataEvento = table.Column<DateTime>(nullable: false),
-                    Tema = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
-                    QtdPessoas = table.Column<int>(unicode: false, nullable: false),
-                    ImgUrl = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
+                    Tema = table.Column<string>(maxLength: 100, nullable: false),
+                    QtdPessoas = table.Column<int>(nullable: false),
+                    ImgUrl = table.Column<string>(maxLength: 100, nullable: false),
                     Telefone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(unicode: false, maxLength: 50, nullable: false)
+                    Email = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,12 +32,15 @@ namespace ProAgil.Infra.Migrations
                 name: "Palestrante",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
-                    Nome = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
-                    MiniCurriculo = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
-                    ImgUrl = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    identifyer = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Nome = table.Column<string>(maxLength: 100, nullable: true),
+                    MiniCurriculo = table.Column<string>(maxLength: 100, nullable: false),
+                    ImgUrl = table.Column<string>(maxLength: 100, nullable: false),
                     Telefone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
                     EventoId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -46,20 +52,24 @@ namespace ProAgil.Infra.Migrations
                 name: "Lote",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
-                    Nome = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
-                    Preco = table.Column<decimal>(unicode: false, nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    identifyer = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Nome = table.Column<string>(maxLength: 100, nullable: true),
+                    Preco = table.Column<decimal>(nullable: false),
                     DataInicio = table.Column<DateTime>(nullable: true),
                     DataFim = table.Column<DateTime>(nullable: true),
-                    Quantidade = table.Column<int>(unicode: false, nullable: false),
-                    EventoId = table.Column<string>(nullable: true)
+                    Quantidade = table.Column<int>(nullable: false),
+                    EventoId = table.Column<string>(nullable: true),
+                    EventoId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lote", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Lote_Evento_EventoId",
-                        column: x => x.EventoId,
+                        name: "FK_Lote_Evento_EventoId1",
+                        column: x => x.EventoId1,
                         principalTable: "Evento",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -69,13 +79,17 @@ namespace ProAgil.Infra.Migrations
                 name: "PalestranteEvento",
                 columns: table => new
                 {
-                    EventoId = table.Column<string>(nullable: false),
-                    PalestranteId = table.Column<string>(nullable: false),
-                    Id = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))")
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    identifyer = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    EventoId = table.Column<int>(nullable: false),
+                    PalestranteId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PalestranteEvento", x => new { x.EventoId, x.PalestranteId });
+                    table.PrimaryKey("PK_PalestranteEvento", x => x.Id);
+                    table.UniqueConstraint("AK_PalestranteEvento_EventoId_PalestranteId", x => new { x.EventoId, x.PalestranteId });
                     table.ForeignKey(
                         name: "FK_PalestranteEvento_Evento_EventoId",
                         column: x => x.EventoId,
@@ -94,33 +108,38 @@ namespace ProAgil.Infra.Migrations
                 name: "RedeSocial",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false, defaultValueSql: "lower(hex(randomblob(16)))"),
-                    Nome = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
-                    Url = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    identifyer = table.Column<string>(nullable: true, defaultValueSql: "lower(hex(randomblob(16)))"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Nome = table.Column<string>(maxLength: 100, nullable: true),
+                    Url = table.Column<string>(maxLength: 100, nullable: true),
                     EventoId = table.Column<string>(nullable: true),
-                    PalestranteId = table.Column<string>(nullable: true)
+                    EventoId1 = table.Column<int>(nullable: true),
+                    PalestranteId = table.Column<string>(nullable: true),
+                    PalestranteId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RedeSocial", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RedeSocial_Evento_EventoId",
-                        column: x => x.EventoId,
+                        name: "FK_RedeSocial_Evento_EventoId1",
+                        column: x => x.EventoId1,
                         principalTable: "Evento",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_RedeSocial_Palestrante_PalestranteId",
-                        column: x => x.PalestranteId,
+                        name: "FK_RedeSocial_Palestrante_PalestranteId1",
+                        column: x => x.PalestranteId1,
                         principalTable: "Palestrante",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lote_EventoId",
+                name: "IX_Lote_EventoId1",
                 table: "Lote",
-                column: "EventoId");
+                column: "EventoId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PalestranteEvento_PalestranteId",
@@ -128,14 +147,14 @@ namespace ProAgil.Infra.Migrations
                 column: "PalestranteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RedeSocial_EventoId",
+                name: "IX_RedeSocial_EventoId1",
                 table: "RedeSocial",
-                column: "EventoId");
+                column: "EventoId1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RedeSocial_PalestranteId",
+                name: "IX_RedeSocial_PalestranteId1",
                 table: "RedeSocial",
-                column: "PalestranteId");
+                column: "PalestranteId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

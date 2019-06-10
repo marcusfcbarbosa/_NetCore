@@ -8,7 +8,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
 {
     public class Palestrante : Entity
     {
-        private Palestrante(){}
+        protected Palestrante(){}
         private readonly IList<RedeSocial> _redesSociais;
         
         public Palestrante(
@@ -30,8 +30,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string MiniCurriculo { get; private set; }
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
-        public string Email { get; private set; }
-    
+        public String Email { get; private set; }
         public String EventoId {get; private set;}
         //Associativa
         public List<PalestranteEvento>  PalestranteEventos {get;set;}

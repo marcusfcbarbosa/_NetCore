@@ -16,5 +16,10 @@ namespace ProAgil.Domain.ValueObjects
             );
         }
         public String Address { get; private set; }
+
+        public override string ToString()
+        {
+            return Address.ToString();
+        }
     }
 }

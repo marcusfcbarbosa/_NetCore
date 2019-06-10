@@ -31,8 +31,8 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
                 return  new CriaEventoCommandResult(false,"Campos enviados com erro", Notifications);
             }
 
-            _eventoRepository.Add(evento);
-            _eventoRepository.SaveChangesAsync();
+            _eventoRepository.Create(evento);
+            _eventoRepository.SaveChanges();
             return new CriaEventoCommandResult(true,"Bem vindo",new {
                         Id = evento.Id,
                         Email = evento.Email
