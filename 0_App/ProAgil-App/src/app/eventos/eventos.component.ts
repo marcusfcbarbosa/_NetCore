@@ -10,11 +10,18 @@ import { HttpClient } from '@angular/common/http';
 
 export class EventosComponent implements OnInit {
   eventos: any;
+  imagemLargura = 100;
+  imagemMargem = 2;
+  mostrarImagem = false;
+
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
     this.getEventos();
+  }
+  alternarImagem() {
+    this.mostrarImagem = !this.mostrarImagem;
   }
   getRetornoPadrao() {
     return [
@@ -37,7 +44,7 @@ export class EventosComponent implements OnInit {
         imgUrl: 'img2.jpg',
         telefone: '11487578758',
         email: 'marcus@teste.com'
-      },{
+      }, {
         id: 3,
         local: 'Sao Paulo',
         dataEvento: '29/05/1986',
@@ -46,7 +53,7 @@ export class EventosComponent implements OnInit {
         imgUrl: 'img3.jpg',
         telefone: '11487578758',
         email: 'marcus@teste.com'
-      },{
+      }, {
         id: 4,
         local: 'Sao Paulo',
         dataEvento: '29/05/1986',
@@ -59,7 +66,7 @@ export class EventosComponent implements OnInit {
     ];
   }
 
- getEventos() {
+  getEventos() {
     this.eventos = this.http.get('http://localhost:5000/api/evento').subscribe(
       response => {
         this.eventos = response;
