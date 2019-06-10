@@ -17,8 +17,8 @@ export class EventosComponent implements OnInit {
     this._filtroLista = value;
     this.eventosFiltrados = this.filtroLista ? this.filtrarEvento(this.filtroLista) : this.eventos;
   }
-  eventosFiltrados: any = [];
 
+  eventosFiltrados: any = [];
   eventos: any;
   imagemLargura = 100;
   imagemMargem = 2;
@@ -31,8 +31,8 @@ export class EventosComponent implements OnInit {
   ngOnInit() {
     this.getEventos();
   }
-  filtrarEvento(filtrarPor: string): any {
 
+  filtrarEvento(filtrarPor: string): any {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
       evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
