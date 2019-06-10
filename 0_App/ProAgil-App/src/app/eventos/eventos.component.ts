@@ -87,7 +87,7 @@ export class EventosComponent implements OnInit {
   }
 
   getEventos() {
-    this.eventos = this.eventoService.getEvento().subscribe(
+    this.eventos = this.eventoService.getAllEventos().subscribe(
       response => {
         this.eventos = response;
         this.eventosFiltrados = response;
