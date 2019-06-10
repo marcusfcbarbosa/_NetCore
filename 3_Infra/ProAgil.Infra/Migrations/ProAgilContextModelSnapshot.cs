@@ -69,9 +69,7 @@ namespace ProAgil.Infra.Migrations
 
                     b.Property<DateTime?>("DataInicio");
 
-                    b.Property<string>("EventoId");
-
-                    b.Property<int?>("EventoId1");
+                    b.Property<int>("EventoId");
 
                     b.Property<string>("Nome")
                         .HasColumnName("Nome")
@@ -89,7 +87,7 @@ namespace ProAgil.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventoId1");
+                    b.HasIndex("EventoId");
 
                     b.ToTable("Lote");
                 });
@@ -106,7 +104,7 @@ namespace ProAgil.Infra.Migrations
                         .HasColumnName("Email")
                         .HasMaxLength(50);
 
-                    b.Property<string>("EventoId");
+                    b.Property<int>("EventoId");
 
                     b.Property<string>("ImgUrl")
                         .IsRequired()
@@ -163,16 +161,12 @@ namespace ProAgil.Infra.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("EventoId");
-
-                    b.Property<int?>("EventoId1");
+                    b.Property<int>("EventoId");
 
                     b.Property<string>("Nome")
                         .HasMaxLength(100);
 
-                    b.Property<string>("PalestranteId");
-
-                    b.Property<int?>("PalestranteId1");
+                    b.Property<int>("PalestranteId");
 
                     b.Property<string>("Url")
                         .HasMaxLength(100);
@@ -183,9 +177,9 @@ namespace ProAgil.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventoId1");
+                    b.HasIndex("EventoId");
 
-                    b.HasIndex("PalestranteId1");
+                    b.HasIndex("PalestranteId");
 
                     b.ToTable("RedeSocial");
                 });
@@ -194,7 +188,8 @@ namespace ProAgil.Infra.Migrations
                 {
                     b.HasOne("ProAgil.Domain.ProAgilContext.Entities.Evento", "Evento")
                         .WithMany("Lotes")
-                        .HasForeignKey("EventoId1");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ProAgil.Domain.ProAgilContext.Entities.PalestranteEvento", b =>
@@ -214,11 +209,13 @@ namespace ProAgil.Infra.Migrations
                 {
                     b.HasOne("ProAgil.Domain.ProAgilContext.Entities.Evento", "Evento")
                         .WithMany("RedesSociais")
-                        .HasForeignKey("EventoId1");
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProAgil.Domain.ProAgilContext.Entities.Palestrante", "Palestrante")
                         .WithMany("RedesSociais")
-                        .HasForeignKey("PalestranteId1");
+                        .HasForeignKey("PalestranteId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

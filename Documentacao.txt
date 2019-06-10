@@ -42,6 +42,8 @@ Criando a base de dados
 dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ database update
 Remover a migrations
 dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ migrations remove
+Alterando campos
+dotnet ef --startup-project ..\..\1_api\ProAgil.webapi\ migrations add "nome da migration"
 
 
 12.1- ligar o app do angular

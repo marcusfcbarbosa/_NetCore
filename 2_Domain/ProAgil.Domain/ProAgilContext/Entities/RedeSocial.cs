@@ -17,9 +17,9 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         }
         public string Nome { get; private set; }   
         public string Url { get; private set; }
-        public String EventoId { get; set; }
+        public int EventoId { get; set; }
         public Evento Evento { get; private set; }
-        public String PalestranteId { get; set; }
+        public int PalestranteId { get; set; }
         public Palestrante Palestrante { get; private set; }
     }
 }

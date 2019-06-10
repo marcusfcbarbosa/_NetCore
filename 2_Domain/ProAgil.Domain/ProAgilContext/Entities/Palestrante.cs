@@ -31,7 +31,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
         public String Email { get; private set; }
-        public String EventoId {get; private set;}
+        public int EventoId {get; private set;}
         //Associativa
         public List<PalestranteEvento>  PalestranteEventos {get;set;}
         public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}

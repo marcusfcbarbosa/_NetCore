@@ -6,8 +6,8 @@ namespace ProAgil.Shared.Interfaces
 {
     public interface IEntity
     {
-         int Id { get; private set; }
-         string identifyer { get; private set; }
-         DateTime CreatedAt { get; private set; }
+         int Id { get; set; }
+         string identifyer { get; set; }
+         DateTime CreatedAt { get; set; }
     }
 }

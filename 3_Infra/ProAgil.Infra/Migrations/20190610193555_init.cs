@@ -41,7 +41,7 @@ namespace ProAgil.Infra.Migrations
                     ImgUrl = table.Column<string>(maxLength: 100, nullable: false),
                     Telefone = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 50, nullable: false),
-                    EventoId = table.Column<string>(nullable: true)
+                    EventoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,18 +61,17 @@ namespace ProAgil.Infra.Migrations
                     DataInicio = table.Column<DateTime>(nullable: true),
                     DataFim = table.Column<DateTime>(nullable: true),
                     Quantidade = table.Column<int>(nullable: false),
-                    EventoId = table.Column<string>(nullable: true),
-                    EventoId1 = table.Column<int>(nullable: true)
+                    EventoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lote", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Lote_Evento_EventoId1",
-                        column: x => x.EventoId1,
+                        name: "FK_Lote_Evento_EventoId",
+                        column: x => x.EventoId,
                         principalTable: "Evento",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,32 +113,30 @@ namespace ProAgil.Infra.Migrations
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     Nome = table.Column<string>(maxLength: 100, nullable: true),
                     Url = table.Column<string>(maxLength: 100, nullable: true),
-                    EventoId = table.Column<string>(nullable: true),
-                    EventoId1 = table.Column<int>(nullable: true),
-                    PalestranteId = table.Column<string>(nullable: true),
-                    PalestranteId1 = table.Column<int>(nullable: true)
+                    EventoId = table.Column<int>(nullable: false),
+                    PalestranteId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RedeSocial", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RedeSocial_Evento_EventoId1",
-                        column: x => x.EventoId1,
+                        name: "FK_RedeSocial_Evento_EventoId",
+                        column: x => x.EventoId,
                         principalTable: "Evento",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RedeSocial_Palestrante_PalestranteId1",
-                        column: x => x.PalestranteId1,
+                        name: "FK_RedeSocial_Palestrante_PalestranteId",
+                        column: x => x.PalestranteId,
                         principalTable: "Palestrante",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lote_EventoId1",
+                name: "IX_Lote_EventoId",
                 table: "Lote",
-                column: "EventoId1");
+                column: "EventoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PalestranteEvento_PalestranteId",
@@ -147,14 +144,14 @@ namespace ProAgil.Infra.Migrations
                 column: "PalestranteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RedeSocial_EventoId1",
+                name: "IX_RedeSocial_EventoId",
                 table: "RedeSocial",
-                column: "EventoId1");
+                column: "EventoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RedeSocial_PalestranteId1",
+                name: "IX_RedeSocial_PalestranteId",
                 table: "RedeSocial",
-                column: "PalestranteId1");
+                column: "PalestranteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
