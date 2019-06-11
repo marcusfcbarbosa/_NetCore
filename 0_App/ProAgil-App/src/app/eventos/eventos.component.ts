@@ -39,15 +39,18 @@ export class EventosComponent implements OnInit {
   ngOnInit() {
     this.getEventos();
   }
+  
   filtrarEvento(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
       evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
     );
   }
+
   alternarImagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
+  
   getEventos() {
     this.eventoService.getAllEventos().subscribe(
       (_eventos: Evento[]) => {

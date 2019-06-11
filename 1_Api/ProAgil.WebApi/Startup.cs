@@ -40,7 +40,7 @@ namespace ProAgil.WebApi
             {
                 options.DescribeAllEnumsAsStrings();
                 options.DescribeAllParametersInCamelCase();
-                options.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                options.SwaggerDoc("v1", new Info { Title = "Documentação", Version = "v1" });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();

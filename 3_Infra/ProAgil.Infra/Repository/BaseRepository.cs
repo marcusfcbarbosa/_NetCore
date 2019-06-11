@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +53,6 @@ namespace ProAgil.Infra.Repository
         {
             return _context.Set<TEntity>().Where(predicate);
         }
-
         public void SaveChanges() => _context.SaveChanges();
     }
 }
