@@ -184,7 +184,12 @@ https://valor-software.com/ngx-bootstrap/#/documentation
  ========================================================================
  18- tags angular tem um identificador diferente do html normal
  <ng-template #template>
- 
+
+
+ Obs:Pegar o html do drop dropdown
+ C:\Users\marcus.barbosa.ext\Documents\_NetCore\0_App\ProAgil-App\src\app\nav\nav.component.html
+ Aula 62
+
  
 
 
