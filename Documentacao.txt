@@ -170,4 +170,5 @@ Depois (Agora funciona)
 </div>
 <h3>Filtro:{{ filtroLista }}</h3>
 ========================================================================
-Continuando aula 57
+Observable- uma lib para se tipar as DTO´s que trafegam nas interfaces
+do angular e as entidades do dominio.
