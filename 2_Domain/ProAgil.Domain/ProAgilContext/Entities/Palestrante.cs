@@ -34,7 +34,17 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public int EventoId {get; private set;}
         //Associativa
         public List<PalestranteEvento>  PalestranteEventos {get;set;}
-        public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}
+        public IReadOnlyCollection<RedeSocial> RedesSociais
+        {
+            get
+            {
+                if (_redesSociais != null)
+                    return _redesSociais.ToArray();
+                else
+                    return default(List<RedeSocial>);
+            }
+        }
+        
         public void AdicionaRedeSocial(RedeSocial redeSocial){
             this._redesSociais.Add(redeSocial);
         }

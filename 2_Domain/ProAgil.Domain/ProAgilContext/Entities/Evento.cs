@@ -10,7 +10,6 @@ namespace ProAgil.Domain.ProAgilContext.Entities
     {
         private readonly IList<Lote> _lotes;
         private readonly IList<RedeSocial> _redesSociais;
-
         protected Evento() { }
         public Evento(
                 string local,
@@ -50,7 +49,9 @@ namespace ProAgil.Domain.ProAgilContext.Entities
                     return default(List<Lote>);
             }
         }
-        public IReadOnlyCollection<RedeSocial> RedesSociais { get
+        public IReadOnlyCollection<RedeSocial> RedesSociais
+        {
+            get
             {
                 if (_redesSociais != null)
                     return _redesSociais.ToArray();
