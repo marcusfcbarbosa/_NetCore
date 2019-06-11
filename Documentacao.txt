@@ -170,5 +170,16 @@ Depois (Agora funciona)
 </div>
 <h3>Filtro:{{ filtroLista }}</h3>
 ========================================================================
-Observable- uma lib para se tipar as DTO´s que trafegam nas interfaces
+16 - Observable- uma lib para se tipar as DTO´s que trafegam nas interfaces
 do angular e as entidades do dominio.
+========================================================================
+
+17 - Trabalhando com extensoes bootstrap
+  https://valor-software.com/ngx-bootstrap/#/documentation
+
+ npm install ngx-bootstrap --save
+
+ usado para trabalhar com tooltips, janela modal, dropdown e outros componentes
+ similares ao jquery
+
+ 

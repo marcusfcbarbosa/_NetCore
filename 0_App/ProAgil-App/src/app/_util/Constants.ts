@@ -4,4 +4,3 @@ export class Constants {
     // ROTAS
     static readonly EVENTO_BASE_URL = 'http://localhost:5000/api/evento';
 }
-
