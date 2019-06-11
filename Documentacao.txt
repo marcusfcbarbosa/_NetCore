@@ -182,4 +182,36 @@ https://valor-software.com/ngx-bootstrap/#/documentation
  usado para trabalhar com tooltips, janela modal, dropdown e outros componentes
  similares ao jquery
  ========================================================================
- aula 60
+ 18- tags angular tem um identificador diferente do html normal
+ <ng-template #template>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
