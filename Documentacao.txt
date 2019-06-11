@@ -30,8 +30,8 @@ dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.4
 =========================================================
 11- Instalando Swagger na Api
 dotnet add package Swashbuckle.AspNetCore
-============================================================================
-12-Criando as migrations e apontando como startup o projecto cujo target é .NetCore
+=========================================================
+12-Criando as migrations e apontando como startup o projeto cujo target é .NetCore
 
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.0
 Lemnbrando que o EF Core para criar as migrations necessita de um projeto cujo target seja .NetCore ao invés de um .NetStandard
@@ -101,7 +101,7 @@ import { HttpClient } from '@angular/common/http';
 
   getEventos() {
     this.eventos = this.http.get('http://localhost:5000/api/eventos').subscribe(
-        response =>  { 
+        response =>{ 
           this.eventos = response;
          }, error =>{
            console.log(error);
@@ -139,7 +139,7 @@ Por padrão o arquivo na raiz da aplicação angular angular.json
       HttpClientModule,
       FormsModule ---Este aqui
    ],
----------------
+---------------------------------------------
    Na View, ele a principio nao funciona dentro de uma tag <form> somente dentro de uma <div>
    Antes (Nao funciona)
   <form class="form-inline">
@@ -171,15 +171,15 @@ Depois (Agora funciona)
 <h3>Filtro:{{ filtroLista }}</h3>
 ========================================================================
 16 - Observable- uma lib para se tipar as DTO´s que trafegam nas interfaces
-do angular e as entidades do dominio.
+do angular e as entidades do dominio, basicamente tipar as DTO´s
 ========================================================================
-
 17 - Trabalhando com extensoes bootstrap
-  https://valor-software.com/ngx-bootstrap/#/documentation
+
+https://valor-software.com/ngx-bootstrap/#/documentation
 
  npm install ngx-bootstrap --save
 
  usado para trabalhar com tooltips, janela modal, dropdown e outros componentes
  similares ao jquery
-
- 
+ ========================================================================
+ aula 60
