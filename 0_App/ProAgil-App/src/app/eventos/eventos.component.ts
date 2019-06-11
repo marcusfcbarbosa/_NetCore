@@ -45,13 +45,15 @@ export class EventosComponent implements OnInit {
     this.mostrarImagem = !this.mostrarImagem;
   }
   getEventos() {
-    this.eventos = this.eventoService.getAllEventos().subscribe(
+    this.eventoService.getAllEventos().subscribe(
       (_eventos: Evento[]) => {
         this.eventos = _eventos;
-        this.eventosFiltrados = _eventos;
+        this.eventosFiltrados = this.eventos;
+        console.log(_eventos);
       }, error => {
         console.log(error);
       }
     );
   }
+
 }

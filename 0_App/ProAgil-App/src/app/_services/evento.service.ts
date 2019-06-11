@@ -20,8 +20,9 @@ export class EventoService {
   getEventoById(id: number): Observable<Evento> {
     return this.http.get<Evento>(`${this.baseURL}/${id}`);
   }
-  getEventoByIdentifier(Identifier: string): Observable<Evento> {
-    return this.http.get<Evento>(`${this.baseURL}/${Identifier}`);
+  
+  getEventoByIdentifier(identifier: string): Observable<Evento> {
+    return this.http.get<Evento>(`${this.baseURL}/${identifier}`);
   }
 
 }
