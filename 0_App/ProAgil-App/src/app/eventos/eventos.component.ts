@@ -3,6 +3,7 @@ import { EventoService } from '../_services/evento.service';
 import { Evento } from '../_models/Evento';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class EventosComponent implements OnInit {
   imagemMargem = 2;
   mostrarImagem = false;
 
-  modalRef: BsModalRef;//Trabalhando com najela modal
+  registerForm: FormGroup;
+
+  modalRef: BsModalRef;//Trabalhando com janela modal
 
   constructor(private eventoService: EventoService, private modalService: BsModalService) { }
 
@@ -39,7 +42,19 @@ export class EventosComponent implements OnInit {
   ngOnInit() {
     this.getEventos();
   }
-  
+
+  salvarAlteracao(){
+
+
+  }
+
+  validation(){
+      this.registerForm = new FormGroup({
+
+      });
+  }
+
+
   filtrarEvento(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
@@ -50,13 +65,12 @@ export class EventosComponent implements OnInit {
   alternarImagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
-  
+
   getEventos() {
     this.eventoService.getAllEventos().subscribe(
       (_eventos: Evento[]) => {
         this.eventos = _eventos;
         this.eventosFiltrados = this.eventos;
-        //console.log(_eventos);
       }, error => {
         console.log(error);
       }
