@@ -87,10 +87,10 @@
           <div *ngIf="registerForm.get('tema').hasError('required')" class="invalid-feedback">
             O tema é obrigatório.
           </div>
-          <div *ngIf="registerForm.get('tema').hasError('minLength')" class="invalid-feedback">
+          <div *ngIf="registerForm.get('tema').hasError('minlength')" class="invalid-feedback">
               O minimo é 4 caracteres
           </div>
-          <div *ngIf="registerForm.get('tema').hasError('maxLength')" class="invalid-feedback">
+          <div *ngIf="registerForm.get('tema').hasError('maxlength')" class="invalid-feedback">
               O máximo é 50 caracteres
           </div>
         </div>
