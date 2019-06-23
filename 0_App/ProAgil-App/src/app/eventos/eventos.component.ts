@@ -1,19 +1,16 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { EventoService } from '../_services/evento.service';
-import { Evento } from '../_models/Evento';
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { EventoService } from "../_services/evento.service";
+import { Evento } from "../_models/Evento";
 
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormGroup, FormControl } from '@angular/forms';
-
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-eventos',
-  templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.css']
+  selector: "app-eventos",
+  templateUrl: "./eventos.component.html",
+  styleUrls: ["./eventos.component.css"]
 })
-
 export class EventosComponent implements OnInit {
-
   _filtroLista: string;
   eventosFiltrados: Evento[];
   eventos: Evento[];
@@ -25,14 +22,19 @@ export class EventosComponent implements OnInit {
 
   modalRef: BsModalRef;
 
-  constructor(private eventoService: EventoService, private modalService: BsModalService) { }
+  constructor(
+    private eventoService: EventoService,
+    private modalService: BsModalService
+  ) {}
 
   get filtroLista(): string {
     return this._filtroLista;
   }
   set filtroLista(value: string) {
     this._filtroLista = value;
-    this.eventosFiltrados = this.filtroLista ? this.filtrarEvento(this.filtroLista) : this.eventos;
+    this.eventosFiltrados = this.filtroLista
+      ? this.filtrarEvento(this.filtroLista)
+      : this.eventos;
   }
 
   openModal(template: TemplateRef<any>) {
@@ -40,26 +42,30 @@ export class EventosComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.validation();
     this.getEventos();
   }
 
-  salvarAlteracao(){
+  salvarAlteracao() {}
 
-
+  validation() {
+    this.registerForm = new FormGroup({
+      tema: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(50)
+      ]),
+      local: new FormControl('', Validators.required),
+      dataEvento: new FormControl('', Validators.required),
+      qtdPessoas: new FormControl('', [
+        Validators.required,
+        Validators.max(20000)
+      ]),
+      imgUrl:   new FormControl('', Validators.required),
+      telefone: new FormControl('', Validators.required),
+      email:    new FormControl('', [Validators.required, Validators.email])
+    });
   }
-
-  validation(){
-      this.registerForm = new FormGroup({
-          tema: new FormControl,
-          local: new FormControl,
-          dataEvento: new FormControl,
-          qtdPessoas: new FormControl,
-          imgUrl: new FormControl,
-          telefone: new FormControl,
-          email: new FormControl,
-      });
-  }
-
 
   filtrarEvento(filtrarPor: string): Evento[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
@@ -77,7 +83,8 @@ export class EventosComponent implements OnInit {
       (_eventos: Evento[]) => {
         this.eventos = _eventos;
         this.eventosFiltrados = this.eventos;
-      }, error => {
+      },
+      error => {
         console.log(error);
       }
     );

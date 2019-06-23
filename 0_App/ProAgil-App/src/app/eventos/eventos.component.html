@@ -76,53 +76,75 @@
     </button>
   </div>
   <div class="modal-body">
-      <form [formGroup]="registerForm">
-          <div class="form-row">
-            <div class="form-group col-md-12">
-              <label>Tema</label>
-              <input type="text" class="form-control" formControlName="tema" >
-            </div>
-          </div>  
-          <div class="form-row">
-            <div class="form-group col-md-8">
-              <label>Local</label>
-              <input type="text" class="form-control" formControlName="local" >
-            </div>
-            <div class="form-group col-md-4">
-              <label>Data e Hora</label>
-              <input type="text" class="form-control" formControlName="dataEvento" >
-            </div>
-          </div>  
-          <div class="form-row">
-            <div class="form-group col-md-3">
-              <label>Qtd Pessoas</label>
-              <input type="text" class="form-control" formControlName="qtdPessoas" >
-            </div>
-            <div class="form-group col-md-9">
-              <label>Imagem</label>
-              <input type="text" class="form-control" formControlName="imgUrl" >
-            </div>
-          </div>  
-          <div class="form-row">
-            <div class="form-group col-md-8">
-              <label>Telefone</label>
-              <input type="text" class="form-control" formControlName="telefone" >
-            </div>
-            <div class="form-group col-md-4">
-              <label>Email</label>
-              <input type="text" class="form-control" formControlName="email" >
-            </div>
-          </div> 
-        </form>
-        <br>
-        <button class="btn btn-secondary" (click)="openModal(template)">
-          Fechar
-        </button>
-        <button class="btn btn-primary" (click)="salvarAlteracao()">
-          Salvar Alterações
-        </button>
-        <br>
-        <br>
-    <br/>
+
+    <form [formGroup]="registerForm">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Tema</label>
+          <input type="text" class="form-control is-invalid" formControlName="tema" placeholder="tema">
+          <div class="invalid-feedback">
+            O tema é obrigatório.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label>Local</label>
+          <input type="text" class="form-control  is-invalid" formControlName="local" placeholder="local">
+          <div class="invalid-feedback">
+            O local é obrigatório.
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Data e Hora</label>
+          <input type="text" class="form-control  is-invalid" formControlName="dataEvento" placeholder="data e evento">
+          <div class="invalid-feedback">
+            Data e hora é obrigatório.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label>Qtd Pessoas</label>
+          <input type="text" class="form-control  is-invalid" formControlName="qtdPessoas" placeholder="quantidade de pessoas">
+          <div class="invalid-feedback">
+            Quantidade de pessoas é obrigatório.
+          </div>
+        </div>
+        <div class="form-group col-md-9">
+          <label>Imagem</label>
+          <input type="text" class="form-control  is-invalid" formControlName="imgUrl">
+          <div class="invalid-feedback">
+            Imagem é obrigatório.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label>Telefone</label>
+          <input type="text" class="form-control  is-invalid" formControlName="telefone" placeholder="telefone">
+          <div class="invalid-feedback">
+            Telefone é obrigatório.
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Email</label>
+          <input type="text" class="form-control  is-invalid" formControlName="email" placeholder="e-mail">
+          <div class="invalid-feedback">
+            E-mail é obrigatório.
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <button class="btn btn-secondary" (click)="openModal(template)">
+      Fechar
+    </button>
+    <button class="btn btn-primary" (click)="salvarAlteracao()">
+      Salvar Alterações
+    </button>
+    <br>
+    <br>
+    <br />
   </div>
 </ng-template>
