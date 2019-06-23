@@ -76,7 +76,6 @@
     </button>
   </div>
   <div class="modal-body">
-
     <form [formGroup]="registerForm">
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -85,8 +84,14 @@
           [ngClass]="{'is-invalid': registerForm.get('tema').errors
           && registerForm.get('tema').touched}" 
           formControlName="tema" placeholder="tema">
-          <div class="invalid-feedback">
+          <div *ngIf="registerForm.get('tema').hasError('required')" class="invalid-feedback">
             O tema é obrigatório.
+          </div>
+          <div *ngIf="registerForm.get('tema').hasError('minLength')" class="invalid-feedback">
+              O minimo é 4 caracteres
+          </div>
+          <div *ngIf="registerForm.get('tema').hasError('maxLength')" class="invalid-feedback">
+              O máximo é 50 caracteres
           </div>
         </div>
       </div>
