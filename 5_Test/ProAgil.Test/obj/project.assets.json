@@ -5809,23 +5809,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\": {},
+    "C:\\Users\\marcu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\5_Test\\ProAgil.Test\\ProAgil.Test.csproj",
+      "projectUniqueName": "c:\\Users\\marcu\\Desktop\\_NetCore\\5_Test\\ProAgil.Test\\ProAgil.Test.csproj",
       "projectName": "ProAgil.Test",
-      "projectPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\5_Test\\ProAgil.Test\\ProAgil.Test.csproj",
-      "packagesPath": "C:\\Users\\marcus.barbosa.ext\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marcus.barbosa.ext\\Documents\\_NetCore\\5_Test\\ProAgil.Test\\obj\\",
+      "projectPath": "c:\\Users\\marcu\\Desktop\\_NetCore\\5_Test\\ProAgil.Test\\ProAgil.Test.csproj",
+      "packagesPath": "C:\\Users\\marcu\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\marcu\\Desktop\\_NetCore\\5_Test\\ProAgil.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\marcus.barbosa.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

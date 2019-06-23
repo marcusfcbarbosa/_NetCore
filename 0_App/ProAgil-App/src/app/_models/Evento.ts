@@ -11,7 +11,7 @@ export interface Evento {
     imgUrl: string;
     telefone: string;
     identifyer: string;
-
+    email: string;
     lotes: Lote[];
     palestranteEventos: Palestrante[];
     redesSociais: RedeSocial[];

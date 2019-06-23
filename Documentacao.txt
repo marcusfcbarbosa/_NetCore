@@ -140,8 +140,9 @@ Por padrão o arquivo na raiz da aplicação angular angular.json
       FormsModule ---Este aqui
    ],
 ---------------------------------------------
-   Na View, ele a principio nao funciona dentro de uma tag <form> somente dentro de uma <div>
-   Antes (Nao funciona)
+Na View, ele a principio nao funciona dentro de uma tag <form> somente dentro de uma <div>
+
+Antes (Nao funciona)
   <form class="form-inline">
   <div class="form-group mb-2">
     <input type="text" class="form-control mr-2"

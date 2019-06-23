@@ -3,7 +3,7 @@ import { EventoService } from '../_services/evento.service';
 import { Evento } from '../_models/Evento';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class EventosComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  modalRef: BsModalRef;//Trabalhando com janela modal
+  modalRef: BsModalRef;
 
   constructor(private eventoService: EventoService, private modalService: BsModalService) { }
 
@@ -50,7 +50,13 @@ export class EventosComponent implements OnInit {
 
   validation(){
       this.registerForm = new FormGroup({
-
+          tema: new FormControl,
+          local: new FormControl,
+          dataEvento: new FormControl,
+          qtdPessoas: new FormControl,
+          imgUrl: new FormControl,
+          telefone: new FormControl,
+          email: new FormControl,
       });
   }
 
