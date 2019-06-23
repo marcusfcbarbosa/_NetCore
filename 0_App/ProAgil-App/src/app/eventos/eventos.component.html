@@ -84,13 +84,16 @@
           [ngClass]="{'is-invalid': registerForm.get('tema').errors
           && registerForm.get('tema').touched}" 
           formControlName="tema" placeholder="tema">
-          <div *ngIf="registerForm.get('tema').hasError('required')" class="invalid-feedback">
+          <div *ngIf="registerForm.get('tema').hasError('required')
+          && registerForm.get('tema').touched" class="invalid-feedback">
             O tema é obrigatório.
           </div>
-          <div *ngIf="registerForm.get('tema').hasError('minlength')" class="invalid-feedback">
+          <div *ngIf="registerForm.get('tema').hasError('minlength')
+          && registerForm.get('tema').touched" class="invalid-feedback">
               O minimo é 4 caracteres
           </div>
-          <div *ngIf="registerForm.get('tema').hasError('maxlength')" class="invalid-feedback">
+          <div *ngIf="registerForm.get('tema').hasError('maxlength')
+          && registerForm.get('tema').touched" class="invalid-feedback">
               O máximo é 50 caracteres
           </div>
         </div>
