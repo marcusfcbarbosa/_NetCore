@@ -185,36 +185,6 @@ https://valor-software.com/ngx-bootstrap/#/documentation
  ========================================================================
  18- tags angular tem um identificador diferente do html normal
  <ng-template #template>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ========================================================================
+ Continua aula 70
 
