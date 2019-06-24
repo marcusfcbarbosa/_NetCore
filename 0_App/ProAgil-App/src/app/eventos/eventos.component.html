@@ -121,7 +121,8 @@
           <input 
           type="text" class="form-control"
           bsDatepicker
-           [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
+          [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm a' }"
+          [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
           && registerForm.get('dataEvento').touched}" formControlName="dataEvento" placeholder="data e evento">
           <div class="invalid-feedback">
             Data e hora é obrigatório.
