@@ -3,7 +3,7 @@ import { EventoService } from "../_services/evento.service";
 import { Evento } from "../_models/Evento";
 
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "app-eventos",
@@ -23,8 +23,9 @@ export class EventosComponent implements OnInit {
   modalRef: BsModalRef;
 
   constructor(
-    private eventoService: EventoService,
-    private modalService: BsModalService
+    private eventoService: EventoService
+    ,private modalService: BsModalService
+    ,private fb: FormBuilder
   ) {}
 
   get filtroLista(): string {
@@ -49,23 +50,14 @@ export class EventosComponent implements OnInit {
   salvarAlteracao() {}
 
   validation() {
-    this.registerForm = new FormGroup({
-      tema: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(50)
-      ]),
-      local: new FormControl('', [Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(50)]),
-      dataEvento: new FormControl('', Validators.required),
-      qtdPessoas: new FormControl('', [
-        Validators.required,
-        Validators.max(20000)
-      ]),
-      imgUrl:   new FormControl('', Validators.required),
-      telefone: new FormControl('', Validators.required),
-      email:    new FormControl('', [Validators.required, Validators.email])
+    this.registerForm = this.fb.group({
+      tema: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      local:['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      dataEvento: ['', Validators.required],
+      qtdPessoas: ['', [Validators.required, Validators.max(20000)]],
+      imgUrl:   ['', Validators.required],
+      telefone: ['', Validators.required],
+      email:    ['', [Validators.required, Validators.email]]
     });
   }
 
