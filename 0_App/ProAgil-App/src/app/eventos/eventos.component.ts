@@ -55,7 +55,9 @@ export class EventosComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(50)
       ]),
-      local: new FormControl('', Validators.required),
+      local: new FormControl('', [Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(50)]),
       dataEvento: new FormControl('', Validators.required),
       qtdPessoas: new FormControl('', [
         Validators.required,

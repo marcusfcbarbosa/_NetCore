@@ -90,11 +90,12 @@
           </div>
           <div *ngIf="registerForm.get('tema').hasError('minlength')
           && registerForm.get('tema').touched" class="invalid-feedback">
-              O minimo é 4 caracteres
+              O minimo é 4 caracteres.
           </div>
           <div *ngIf="registerForm.get('tema').hasError('maxlength')
-          && registerForm.get('tema').touched" class="invalid-feedback">
-              O máximo é 50 caracteres
+          && registerForm.get('tema').touched
+          " class="invalid-feedback">
+              O máximo é 50 caracteres.
           </div>
         </div>
       </div>
@@ -108,6 +109,18 @@
           <div class="invalid-feedback">
             O local é obrigatório.
           </div>
+          <div *ngIf="registerForm.get('local').hasError('minlength')
+          && registerForm.get('local').touched"
+          class="invalid-feedback">
+              O minimo é 4 caracteres.
+            </div>
+            <div
+            *ngIf="registerForm.get('local').hasError('maxlength')
+          && registerForm.get('local').touched"
+             class="invalid-feedback">
+                O máximo é 50 caracteres.
+             </div>
+  
         </div>
         <div class="form-group col-md-4">
           <label>Data e Hora</label>
@@ -153,9 +166,15 @@
            [ngClass]="{'is-invalid': registerForm.get('email').errors
           && registerForm.get('email').touched}" 
           formControlName="email" placeholder="e-mail">
-          <div class="invalid-feedback">
+          
+          <div  class="invalid-feedback">
             E-mail é obrigatório.
           </div>
+
+          <div *ngIf="registerForm.get('email').hasError('email')
+          && registerForm.get('email').touched" class="invalid-feedback">
+              E-mail é inválido.
+            </div>
         </div>
       </div>
     </form>
