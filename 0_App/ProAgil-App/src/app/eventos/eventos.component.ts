@@ -22,7 +22,7 @@ export class EventosComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  modalRef: BsModalRef;
+  
 
   constructor(
     private eventoService: EventoService
@@ -43,8 +43,8 @@ export class EventosComponent implements OnInit {
       : this.eventos;
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(template: any) {
+    template.show();
   }
 
   ngOnInit() {
