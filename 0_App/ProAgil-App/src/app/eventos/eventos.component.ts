@@ -1,36 +1,40 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { EventoService } from '../_services/evento.service';
-import { Evento } from '../_models/Evento';
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { EventoService } from "../_services/evento.service";
+import { Evento } from "../_models/Evento";
 
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { defineLocale, BsLocaleService , ptBrLocale } from 'ngx-bootstrap';
-defineLocale('pt-br',ptBrLocale)
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from "@angular/forms";
+import { defineLocale, BsLocaleService, ptBrLocale } from "ngx-bootstrap";
+defineLocale("pt-br", ptBrLocale);
 
 @Component({
-  selector: 'app-eventos',
-  templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.css']
+  selector: "app-eventos",
+  templateUrl: "./eventos.component.html",
+  styleUrls: ["./eventos.component.css"]
 })
 export class EventosComponent implements OnInit {
   _filtroLista: string;
   eventosFiltrados: Evento[];
   eventos: Evento[];
+  evento: Evento;
   imagemLargura = 100;
   imagemMargem = 2;
   mostrarImagem = false;
 
   registerForm: FormGroup;
 
-  
-
   constructor(
-    private eventoService: EventoService
-    ,private modalService: BsModalService
-    ,private fb: FormBuilder
-    ,private localeService: BsLocaleService
+    private eventoService: EventoService,
+    private modalService: BsModalService,
+    private fb: FormBuilder,
+    private localeService: BsLocaleService
   ) {
-    this.localeService.use('pt-br');
+    this.localeService.use("pt-br");
   }
 
   get filtroLista(): string {
@@ -44,6 +48,7 @@ export class EventosComponent implements OnInit {
   }
 
   openModal(template: any) {
+    this.registerForm.reset();
     template.show();
   }
 
@@ -52,17 +57,37 @@ export class EventosComponent implements OnInit {
     this.getEventos();
   }
 
-  salvarAlteracao() {}
+  salvarAlteracao(template: any) {
+    if (this.registerForm.valid) {
+      this.evento = Object.assign({}, this.registerForm.value);
+      this.eventoService.postEvento(this.evento).subscribe(
+        (novoEvento: Evento) => {
+          console.log(novoEvento);
+          this.getEventos();
+          template.hide();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
 
   validation() {
     this.registerForm = this.fb.group({
-      tema: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-      local:['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-      dataEvento: ['', Validators.required],
-      qtdPessoas: ['', [Validators.required, Validators.max(20000)]],
-      imgUrl:   ['', Validators.required],
-      telefone: ['', Validators.required],
-      email:    ['', [Validators.required, Validators.email]]
+      tema: [
+        "",
+        [Validators.required, Validators.minLength(4), Validators.maxLength(50)]
+      ],
+      local: [
+        "",
+        [Validators.required, Validators.minLength(4), Validators.maxLength(50)]
+      ],
+      dataEvento: ["", Validators.required],
+      qtdPessoas: ["", [Validators.required, Validators.max(20000)]],
+      imgUrl: ["", Validators.required],
+      telefone: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email]]
     });
   }
 
