@@ -43,7 +43,6 @@ namespace ProAgil.Infra.Context
             base.OnModelCreating(modelBuilder);
         }
 
-
         private void EntityMapping(ModelBuilder modelBuilder){
                 modelBuilder.Entity<Palestrante>(entity =>  
                 {  

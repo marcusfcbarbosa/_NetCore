@@ -14,6 +14,7 @@ namespace ProAgil.Domain.ProAgilContext.Repositories.Interfaces
 
         //read side (could be in separate Readonly Generic Repository)
         TEntity GetById(int id);
+        
         IEnumerable<TEntity> Filter();
         IEnumerable<TEntity> Filter(Func<TEntity, bool> predicate);
 

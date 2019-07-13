@@ -39,6 +39,18 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
         public String Email { get; private set; }
+
+
+        public void EditaEvento(string local,DateTime dataEvento,string tema,int qtdPessoas,string imgUrl,string telefone,String email){
+                this.Local =local;
+                this.DataEvento = dataEvento;
+                this.Tema = tema;
+                this.QtdPessoas = qtdPessoas;
+                this.ImgUrl= imgUrl;
+                this.Telefone = telefone;
+                this.Email = email;
+
+        }
         public IReadOnlyCollection<Lote> Lotes
         {
             get

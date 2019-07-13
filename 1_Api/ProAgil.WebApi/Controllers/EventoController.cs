@@ -49,5 +49,15 @@ namespace ProAgil.WebApi.Controllers
                     return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpPut("")]
+        public async Task<IActionResult> Put([FromBody]EditaEventoCommand command){
+            try{
+                return Ok(_eventoHandler.Handle(command));
+
+            }catch(Exception ex){
+                    return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
     }
 }

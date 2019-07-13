@@ -12,7 +12,11 @@ namespace ProAgil.Infra.Repository
     {
         private readonly ProAgilContext _context;
 
-        public BaseRepository(ProAgilContext context) => _context = context;
+        public BaseRepository(ProAgilContext context)
+        {
+            _context = context;
+        }
+
 
         public void Create(TEntity entity)
         {
@@ -35,8 +39,10 @@ namespace ProAgil.Infra.Repository
 
         public void Edit(TEntity entity)
         {
-            var editedEntity = _context.Set<TEntity>().FirstOrDefault(e => e.Id == entity.Id);
+            var editedEntity = _context.Set<TEntity>().Where(e => e.Id == entity.Id).FirstOrDefault();
             editedEntity = entity;
+            _context.Set<TEntity>().Update(editedEntity);
+            _context.SaveChanges();
         }
 
         public TEntity GetById(int id)

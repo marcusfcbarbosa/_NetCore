@@ -31,19 +31,31 @@ namespace ProAgil.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
+            //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
             services.AddDbContext<ProAgilContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             registrandoDependencias(services);
-             //adicionando a documentação dos endpoints
+            //adicionando a documentação dos endpoints
             services.AddSwaggerGen(options =>
             {
                 options.DescribeAllEnumsAsStrings();
                 options.DescribeAllParametersInCamelCase();
                 options.SwaggerDoc("v1", new Info { Title = "Documentação", Version = "v1" });
             });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddCors();
+            services.AddCors(options =>
+                            {
+                                options.AddPolicy("AllowAll",
+                                    builder =>
+                                    {
+                                        builder
+                                        .AllowAnyOrigin()
+                                        .AllowAnyMethod()
+                                        .AllowAnyHeader()
+                                        .AllowCredentials();
+                                    });
+                            });
         }
         public void registrandoDependencias(IServiceCollection services)
         {
@@ -87,7 +99,7 @@ namespace ProAgil.WebApi
 
 
             //app.UseHttpsRedirection();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             app.UseStaticFiles();//Para poder trabalhar com imagens, dentro do diretorio wwwroot
             app.UseMvc();
         }

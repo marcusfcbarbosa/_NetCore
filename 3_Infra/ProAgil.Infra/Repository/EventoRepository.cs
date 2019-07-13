@@ -68,5 +68,13 @@ namespace ProAgil.Infra.Repository
             IEnumerable<Evento> query = _context.Eventos.ToList();
             return query;
         }
+
+        public async Task<Evento> GetEventoByIdentifier(string identifyer)
+        {
+            IQueryable<Evento> query = _context.Eventos
+            .Where(c=>c.identifyer == identifyer);
+
+            return await query.FirstOrDefaultAsync();
+        }
     }
 }

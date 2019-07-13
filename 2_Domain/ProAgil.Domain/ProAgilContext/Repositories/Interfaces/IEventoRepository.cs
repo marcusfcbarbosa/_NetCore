@@ -12,6 +12,7 @@ namespace ProAgil.Domain.ProAgilContext.Repositories.Interfaces
          Task<Evento[]>  GetAllEventosAsyncBytTema(string tema, bool includePalestrantes);
          Task<Evento[]>  GetAllEventosAsync(bool includePalestrantes = false);
          Task<Evento>  GetAllEventosAsyncById(int id,bool includePalestrantes = false);
+         Task<Evento> GetEventoByIdentifier(string identifyer);
 
          IEnumerable<Evento> GetAll();
     }
