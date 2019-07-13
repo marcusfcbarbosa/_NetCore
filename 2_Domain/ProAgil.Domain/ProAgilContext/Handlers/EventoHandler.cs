@@ -13,7 +13,9 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
 {
     public class EventoHandler : Notifiable,
      ICommandHandler<CriaEventoCommand>,
-     ICommandHandlerAsync<EditaEventoCommand>
+     ICommandHandlerAsync<EditaEventoCommand>,
+     ICommandHandlerAsync<DeletaEventoCommand>
+
     {
         private readonly IEventoRepository _eventoRepository;
         public EventoHandler(IEventoRepository eventoRepository)
@@ -74,6 +76,17 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
                     mensagem = ex.Message
                 });
             }
+        }
+
+        public async Task<ICommandResult> Handle(DeletaEventoCommand command)
+        {
+            var evento = await _eventoRepository.GetEventoByIdentifier(command.identifyer);
+            if (command.Valid())
+            {
+                _eventoRepository.Delete(evento);
+                return new DeletaEventoCommandResult(true, "Deletado");
+            }
+            return new DeletaEventoCommandResult(false, "Erro");
         }
     }
 }

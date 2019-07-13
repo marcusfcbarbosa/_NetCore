@@ -23,9 +23,22 @@ namespace ProAgil.Infra.Repository
             _context.Set<TEntity>().Add(entity);
         }
 
-        public void Delete(TEntity entity)
+        public bool Delete(TEntity entity)
         {
-            _context.Set<TEntity>().Remove(entity);
+            try
+            {
+                if (entity != null)
+                {
+                    _context.Set<TEntity>().Remove(entity);
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public void Delete(int id)
@@ -34,6 +47,7 @@ namespace ProAgil.Infra.Repository
             if (entityToDelete != null)
             {
                 _context.Set<TEntity>().Remove(entityToDelete);
+                _context.SaveChanges();
             }
         }
 

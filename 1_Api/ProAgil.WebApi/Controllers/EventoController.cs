@@ -11,14 +11,15 @@ namespace ProAgil.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventoController: ControllerBase
+    public class EventoController : ControllerBase
     {
         private readonly EventoHandler _eventoHandler;
         private readonly IEventoRepository _eventoRepository;
         public EventoController(EventoHandler eventoHandler,
-        IEventoRepository eventoRepository){
-                _eventoHandler = eventoHandler;
-                _eventoRepository = eventoRepository;
+        IEventoRepository eventoRepository)
+        {
+            _eventoHandler = eventoHandler;
+            _eventoRepository = eventoRepository;
         }
 
         [HttpGet("")]
@@ -26,7 +27,7 @@ namespace ProAgil.WebApi.Controllers
         {
             try
             {
-                var results =  _eventoRepository.GetAll().OrderBy(x=>x.Tema);
+                var results = _eventoRepository.GetAll().OrderBy(x => x.Tema);
                 return Ok(results);
             }
             catch (Exception ex)
@@ -38,27 +39,56 @@ namespace ProAgil.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var result = await _eventoRepository.GetAllEventosAsyncById(id,false);
+            var result = await _eventoRepository.GetAllEventosAsyncById(id, false);
             return Ok(result);
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> Post([FromBody]CriaEventoCommand command){
-            try{
+        public async Task<IActionResult> Post([FromBody]CriaEventoCommand command)
+        {
+            try
+            {
                 return Ok(_eventoHandler.Handle(command));
-            }catch(Exception ex){
-                    return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpPut("")]
-        public async Task<IActionResult> Put([FromBody]EditaEventoCommand command){
-            try{
+        public async Task<IActionResult> Put([FromBody]EditaEventoCommand command)
+        {
+            try
+            {
                 return Ok(_eventoHandler.Handle(command));
 
-            }catch(Exception ex){
-                    return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpDelete("{identifyer}")]
+        public async Task<IActionResult> Delete(string identifyer)
+        {
+            try
+            {
+                var evento = await _eventoRepository.GetEventoByIdentifier(identifyer);
+                if (evento != null)
+                {
+                    _eventoRepository.Delete(evento);
+                    evento = await _eventoRepository.GetEventoByIdentifier(identifyer);
+                    return Ok(await Task.FromResult(evento));
+                }
+                return Ok(await Task.FromResult(false));
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
     }
+
 }

@@ -8,7 +8,7 @@ namespace ProAgil.Domain.ProAgilContext.Repositories.Interfaces
     public interface IBaseRepository<TEntity> where TEntity : IEntity
     {
         void Create(TEntity entity);
-        void Delete(TEntity entity);
+        bool Delete(TEntity entity);
         void Delete(int id);
         void Edit(TEntity entity);
 
