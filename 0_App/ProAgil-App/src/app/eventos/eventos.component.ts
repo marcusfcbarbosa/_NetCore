@@ -67,7 +67,7 @@ export class EventosComponent implements OnInit {
           }
         );
       } else {
-        this.evento = Object.assign({id:this.evento.identifyer}, this.registerForm.value);
+        this.evento = Object.assign({identifyer: this.evento.identifyer}, this.registerForm.value);
         this.eventoService.putEvento(this.evento).subscribe(
           (novoEvento: Evento) => {
             template.hide();

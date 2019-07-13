@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ namespace ProAgil.WebApi.Controllers
         {
             try
             {
-                var results =  _eventoRepository.GetAll();
+                var results =  _eventoRepository.GetAll().OrderBy(x=>x.Tema);
                 return Ok(results);
             }
             catch (Exception ex)
