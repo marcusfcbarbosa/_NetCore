@@ -74,7 +74,6 @@ namespace ProAgil.WebApi
             services.AddScoped<IPalestranteRepository, PalestranteRepository>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             #endregion
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

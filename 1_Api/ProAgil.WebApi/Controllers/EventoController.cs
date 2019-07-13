@@ -79,8 +79,7 @@ namespace ProAgil.WebApi.Controllers
                 if (evento != null)
                 {
                     _eventoRepository.Delete(evento);
-                    evento = await _eventoRepository.GetEventoByIdentifier(identifyer);
-                    return Ok(await Task.FromResult(evento));
+                    return Ok(await Task.FromResult(true));
                 }
                 return Ok(await Task.FromResult(false));
             }
