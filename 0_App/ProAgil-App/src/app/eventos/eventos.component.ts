@@ -21,6 +21,7 @@ defineLocale('pt-br', ptBrLocale);
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
+  titulo = 'Eventos';
   _filtroLista: string;
   eventosFiltrados: Evento[];
   eventos: Evento[];
