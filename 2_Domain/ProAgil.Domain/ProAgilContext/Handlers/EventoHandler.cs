@@ -56,7 +56,7 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
                 var evento = await _eventoRepository.GetEventoByIdentifier(command.identifyer);
                 if (command.Valid())
                 {
-                    evento.EditaEvento(command.Local, command.DataEvento, command.Tema, command.QtdPessoas, command.ImgUrl, command.Telefone, command.Email);
+                    evento.EditaEvento(command.Local, DateTime.Parse(command.DataEvento) , command.Tema, command.QtdPessoas, command.ImgUrl, command.Telefone, command.Email);
                     _eventoRepository.Edit(evento);
                     return new CriaEventoCommandResult(true, "Editado", new
                     {

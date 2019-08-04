@@ -239,4 +239,32 @@ export class YourComponent {
     this.toastr.success('Hello world!', 'Toastr fun!');
   }
 }
+========================================================================
+20- TRABALHANDO COM ROTAS
 
+src\app\app-routing.module.ts
+-----------
+Ao se definir alguma view de entrada (DashBoard), deve-se estabelecer quais rotas que a aplicação deve trabalhar,
+isso é configurado no arquivo app-routing.module.ts
+-----------
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { EventosComponent } from './eventos/eventos.component';
+import { PalestrantesComponent } from './Palestrantes/Palestrantes.component';
+import { ContatosComponent } from './contatos/contatos.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+//caso na rota se digite eventos, ele redireciona para o componente EventosComponent e por padrão redireciona para o DashBoard
+const routes: Routes = [
+  { path: '/', component: DashboardComponent },
+  { path: 'eventos', component: EventosComponent },
+  { path: 'palestrantes', component: PalestrantesComponent },
+  { path: 'contatos', component: ContatosComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+========================================================================
