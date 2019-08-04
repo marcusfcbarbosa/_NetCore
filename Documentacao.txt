@@ -269,4 +269,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+dentro do componente de navegação, devemos trabalhar com routerLink e routerLinkActive
+<li class="nav-item" routerLinkActive="active">
+  <a class="nav-link disabled" routerLink="contatos">Contatos</a>
+</li>
 ========================================================================
