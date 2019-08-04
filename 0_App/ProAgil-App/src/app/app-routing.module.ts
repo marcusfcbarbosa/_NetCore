@@ -6,10 +6,12 @@ import { ContatosComponent } from './contatos/contatos.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'eventos', component: EventosComponent },
   { path: 'palestrantes', component: PalestrantesComponent },
-  { path: 'contatos', component: ContatosComponent }
+  { path: 'contatos', component: ContatosComponent },
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

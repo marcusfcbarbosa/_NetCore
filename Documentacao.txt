@@ -256,10 +256,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 //caso na rota se digite eventos, ele redireciona para o componente EventosComponent e por padrão redireciona para o DashBoard
 const routes: Routes = [
-  { path: '/', component: DashboardComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'eventos', component: EventosComponent },
   { path: 'palestrantes', component: PalestrantesComponent },
   { path: 'contatos', component: ContatosComponent },
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
