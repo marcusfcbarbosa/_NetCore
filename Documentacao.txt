@@ -186,5 +186,57 @@ https://valor-software.com/ngx-bootstrap/#/documentation
  18- tags angular tem um identificador diferente do html normal
  <ng-template #template>
  ========================================================================
- Continua aula 87
+19- Mexendo com animações usando  ngx-toastr (Funciona como o Bootstrap.AlertMessage)
+
+https://www.npmjs.com/package/ngx-toastr
+
+npm install ngx-toastr --save
+
+dentro do app.module
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+e adiciona dois imports 
+@NgModule({
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule, // esse aqui
+    ToastrModule.forRoot() // esse aqui
+  ],
+  bootstrap: [App],
+  declarations: [App]
+})
+Aplicações de estilo
+If you are using angular-cli you can add it to your angular.json
+( dentro do arquivo angular.json, na tag styles )
+"styles": [
+  "styles.scss",
+  "node_modules/ngx-toastr/toastr.css" // try adding '../' if you're using angular cli before 6
+]
+-------------------
+dentro do styles.css , deve-se colocar isso, pois ele simplesmente nao some da tela caso seja invocado
+
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
+
+#toast-containr > div {
+    opacity: 1;
+}
+-------------------
+Obs: Lembrando que quaisquer alterações no angular.json, necessita-se compilar a aplicação novamente
+-------------------
+Dentro do componente que se deseja usar o Toastr
+import { ToastrService } from 'ngx-toastr';
+ 
+@Component({...})
+export class YourComponent {
+  constructor(private toastr: ToastrService) {}
+ 
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
+}
 

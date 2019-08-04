@@ -42,7 +42,7 @@
       <td> {{evento.identifyer}} </td>
       <td> {{evento.tema | uppercase }} </td>
       <td> {{evento.local }} </td>
-      <td> {{evento.dataEvento | DateTimeFormatPipe }} </td>
+      <td> {{evento.dataEvento}} </td>
       <td> {{evento.qtdPessoas}} </td>
       <td> {{evento.telefone}} </td>
       <td>
@@ -66,7 +66,7 @@
       </td>
     </tr>
   </tbody>
-  <tfoot *ngIf="!eventos.length">
+  <tfoot *ngIf="!eventos">
     <tr>
       <td colspan="7" class="text-center">
         Nenhum elemento encontrado
@@ -125,7 +125,7 @@
             <div class="form-group col-md-4">
               <label>Data e Hora</label>
               <input type="text" class="form-control" bsDatepicker
-                [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm p' }" [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
+                [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm' }" [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
       && registerForm.get('dataEvento').touched}" formControlName="dataEvento" placeholder="data e evento">
               <div class="invalid-feedback">
                 Data e hora é obrigatório.

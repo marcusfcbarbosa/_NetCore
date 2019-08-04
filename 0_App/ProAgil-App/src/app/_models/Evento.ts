@@ -1,10 +1,10 @@
-import { Lote } from "./Lote";
-import { Palestrante } from "./Palestrante";
-import { RedeSocial } from "./RedeSocial";
+import { Lote } from './Lote';
+import { Palestrante } from './Palestrante';
+import { RedeSocial } from './RedeSocial';
 
 export interface Evento {
   local: string;
-  dataEvento: Date;
+  dataEvento: string;
   tema: string;
   qtdPessoas: number;
   imgUrl: string;
