@@ -16,6 +16,9 @@ using ProAgil.Infra.Context;
 using ProAgil.Infra.Repository;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace ProAgil.WebApi
 {
@@ -96,10 +99,13 @@ namespace ProAgil.WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My First Swagger");
             });
 
-
             //app.UseHttpsRedirection();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             app.UseStaticFiles();//Para poder trabalhar com imagens, dentro do diretorio wwwroot
+            app.UseStaticFiles(new StaticFileOptions() {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"Resources")),
+                RequestPath = new PathString("/Resources")
+            });
             app.UseMvc();
         }
     }
