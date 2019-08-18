@@ -37,7 +37,7 @@
   <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let evento of eventosFiltrados">
       <td>
-        <img *ngIf="mostrarImagem" src="http://localhost:5000/Resources/images/{{evento.imgUrl}}" [style.width.px]="imagemLargura"
+        <img *ngIf="mostrarImagem" src="http://localhost:5000/Resources/images/{{evento.imgUrl}}?_ts={{dataAtual}}" [style.width.px]="imagemLargura"
           [style.margin.px]="imagemMargem">
       </td>
       <td> {{evento.identifyer}} </td>
@@ -146,7 +146,7 @@
             <div [ngClass]="{'is-invalid': registerForm.get('imgUrl').errors
       && registerForm.get('imgUrl').touched}" class="form-group col-md-9">
               <label>Imagem</label>
-              
+
               <table>
                 <tr>
                   <td>

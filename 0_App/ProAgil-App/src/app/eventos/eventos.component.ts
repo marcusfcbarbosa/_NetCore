@@ -33,6 +33,7 @@ export class EventosComponent implements OnInit {
   bodyDeletarEvento = '';
   registerForm: FormGroup;
   file: File;
+  dataAtual: string;
   fileNameToUpdate: any;
   constructor(
     private eventoService: EventoService,
@@ -78,10 +79,21 @@ export class EventosComponent implements OnInit {
     if(this.modoSalvar === 'post'){
       const nomeArquivo = this.evento.imgUrl.split('\\', 3);
       this.evento.imgUrl = nomeArquivo[2];
-      this.eventoService.postUpload(this.file, nomeArquivo[2]).subscribe();
+      this.eventoService.postUpload(this.file, nomeArquivo[2])
+      .subscribe(
+        () => {
+          this.dataAtual = new Date().getDate().toString();
+          this.getEventos();
+        }
+      );
     } else if (this.modoSalvar === 'put'){
       this.evento.imgUrl = this.fileNameToUpdate;
-      this.eventoService.postUpload(this.file, this.fileNameToUpdate).subscribe();
+      this.eventoService.postUpload(this.file, this.fileNameToUpdate).subscribe(
+        () => {
+          this.dataAtual = new Date().getDate().toString();
+          this.getEventos();
+        }
+      );
     }
   }
 
@@ -105,7 +117,9 @@ export class EventosComponent implements OnInit {
         );
       } else {
         this.evento = Object.assign({identifyer: this.evento.identifyer}, this.registerForm.value);
+        
         this.UploadImagem();
+
         this.eventoService.putEvento(this.evento).subscribe(
           (novoEvento: Evento) => {
             template.hide();
