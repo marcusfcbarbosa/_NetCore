@@ -6,7 +6,7 @@ namespace ProAgil.Domain.Identity
 {
     public class User : IdentityUser<long>
     {
-        [Column(TypeName= "nvarchar(150)")]
+        [Column(TypeName = "nvarchar(150)")]
         public string Context { get; set; }
 
         [Column(TypeName = "nvarchar(150)")]
@@ -16,8 +16,7 @@ namespace ProAgil.Domain.Identity
 
         public override string ToString()
         {
-            return this.UserName+" "+ FullName;
+            return this.UserName + " " + FullName;
         }
-
     }
 }
