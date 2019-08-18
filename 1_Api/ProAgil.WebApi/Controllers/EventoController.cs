@@ -46,7 +46,7 @@ namespace ProAgil.WebApi.Controllers
             {
                 //A principio trabalhar em cima desse formato de upload, mas posteriormente salvar em Base64
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Resources","img");
+                var folderName = Path.Combine("Resources","images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(),folderName);
                 if(file.Length > 0){
                     var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;

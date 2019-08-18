@@ -31,8 +31,8 @@ export class EventosComponent implements OnInit {
   mostrarImagem = false;
   modoSalvar = 'post';
   bodyDeletarEvento ='';
-
   registerForm: FormGroup;
+  file: File;
 
   constructor(
     private eventoService: EventoService,
@@ -59,7 +59,11 @@ export class EventosComponent implements OnInit {
   }
 
   FileChange(event) {
-    console.log(event);
+    
+    const reader = new FileReader();
+    if(event.target.files && event.target.files.length){
+      this.file = event.target.files;
+    }
   }
 
   salvarAlteracao(template: any) {
@@ -67,6 +71,11 @@ export class EventosComponent implements OnInit {
 
       if(this.modoSalvar === 'post'){
         this.evento = Object.assign({}, this.registerForm.value);
+
+        this.eventoService.postUpload(this.file).subscribe();
+        const nomeArquivo = this.evento.imgUrl.split('\\', 3);
+        this.evento.imgUrl = nomeArquivo[2];
+
         this.eventoService.postEvento(this.evento).subscribe(
           (novoEvento: Evento) => {
             template.hide();
