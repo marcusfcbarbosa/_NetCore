@@ -6,7 +6,6 @@ C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProA
 C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.runtimeconfig.dev.json
 C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.dll
 C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\bin\Debug\netcoreapp2.2\ProAgil.Test.pdb
-C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.csprojAssemblyReference.cache
 C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.csproj.CoreCompileInputs.cache
 C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.AssemblyInfoInputs.cache
 C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.AssemblyInfo.cs
@@ -26,3 +25,4 @@ C:\Users\marcus.barbosa.ext\Documents\_NetCore\5_Test\ProAgil.Test\obj\Debug\net
 C:\Users\marcus.barbosa.ext\Documents\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.AssemblyInfo.cs
 C:\Users\marcus.barbosa.ext\Documents\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.dll
 C:\Users\marcus.barbosa.ext\Documents\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.pdb
+C:\Users\marcu\Desktop\_NetCore\5_Test\ProAgil.Test\obj\Debug\netcoreapp2.2\ProAgil.Test.csprojAssemblyReference.cache

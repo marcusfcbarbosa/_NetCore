@@ -1,15 +1,12 @@
-using System;
-using System.Linq;
 using FluentValidator;
-using FluentValidator.Validation;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProAgil.Domain.ProAgilContext.Entities;
 using ProAgil.Domain.ValueObjects;
-using ProAgil.Shared.Entities;
 
 namespace ProAgil.Infra.Context
 {
-    public class ProAgilContext : DbContext
+    public class ProAgilContext : IdentityDbContext
     {
         public ProAgilContext(DbContextOptions<ProAgilContext> options) 
             : base(options){

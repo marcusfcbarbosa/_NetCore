@@ -276,3 +276,13 @@ dentro do componente de navegação, devemos trabalhar com routerLink e routerLi
   <a class="nav-link disabled" routerLink="contatos">Contatos</a>
 </li>
 ========================================================================
+21 - Adicionando Identity Core
+
+ao invés de usar o DbContext, deve-se usar o IdentityContext
+
+public class ProAgilContext : IdentityDBContext
+    {
+domain
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 2.2.0
+infra
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 2.2.0
