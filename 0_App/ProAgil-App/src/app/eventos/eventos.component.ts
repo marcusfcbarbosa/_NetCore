@@ -30,10 +30,10 @@ export class EventosComponent implements OnInit {
   imagemMargem = 2;
   mostrarImagem = false;
   modoSalvar = 'post';
-  bodyDeletarEvento ='';
+  bodyDeletarEvento = '';
   registerForm: FormGroup;
   file: File;
-
+  fileNameToUpdate: any;
   constructor(
     private eventoService: EventoService,
     private modalService: BsModalService,
@@ -59,17 +59,30 @@ export class EventosComponent implements OnInit {
   }
 
   FileChange(event) {
-    
     const reader = new FileReader();
-    if(event.target.files && event.target.files.length){
+    if(event.target.files && event.target.files.length) {
       this.file = event.target.files;
     }
   }
 
+  editarEvento(evento: Evento, template: any) {
+    this.modoSalvar = 'put';
+    this.openModal(template);
+    this.evento = Object.assign ({}, evento );
+    this.fileNameToUpdate = evento.imgUrl.toString();
+    this.evento.imgUrl = '';
+    this.registerForm.patchValue(this.evento);
+  }
+
   UploadImagem(){
-    this.eventoService.postUpload(this.file).subscribe();
-    const nomeArquivo = this.evento.imgUrl.split('\\', 3);
-    this.evento.imgUrl = nomeArquivo[2];
+    if(this.modoSalvar === 'post'){
+      const nomeArquivo = this.evento.imgUrl.split('\\', 3);
+      this.evento.imgUrl = nomeArquivo[2];
+      this.eventoService.postUpload(this.file, nomeArquivo[2]).subscribe();
+    } else if (this.modoSalvar === 'put'){
+      this.evento.imgUrl = this.fileNameToUpdate;
+      this.eventoService.postUpload(this.file, this.fileNameToUpdate).subscribe();
+    }
   }
 
   salvarAlteracao(template: any) {
@@ -108,12 +121,10 @@ export class EventosComponent implements OnInit {
   }
 
   excluirEvento(evento: Evento, template: any) {
-    
     this.openModal(template);
     this.evento = evento;
     this.bodyDeletarEvento = `Tem certeza que deseja excluir o Evento: ${evento.tema}, Código: ${evento.tema}`;
   }
-  
   confirmeDelete(template: any) {
     this.eventoService.deleteEvento(this.evento.identifyer).subscribe(
       () => {
@@ -126,13 +137,7 @@ export class EventosComponent implements OnInit {
     );
   }
 
-  editarEvento(evento: Evento, template: any) {
-    this.modoSalvar = 'put';
-    this.openModal(template);
-    this.evento = evento;
-    this.evento.imgUrl = '';
-    this.registerForm.patchValue(evento);
-  }
+  
 
   novoEvento(template: any){
     this.modoSalvar = 'post';
