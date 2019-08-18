@@ -104,7 +104,7 @@ namespace ProAgil.WebApi
             app.UseStaticFiles();//Para poder trabalhar com imagens, dentro do diretorio wwwroot
             app.UseStaticFiles(new StaticFileOptions() {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"Resources")),
-                RequestPath = new PathString("/Resources")
+                RequestPath = "/Resources"
             });
             app.UseMvc();
         }

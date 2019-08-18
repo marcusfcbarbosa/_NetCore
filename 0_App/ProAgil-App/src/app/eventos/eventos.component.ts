@@ -58,6 +58,10 @@ export class EventosComponent implements OnInit {
     this.getEventos();
   }
 
+  FileChange(event) {
+    console.log(event);
+  }
+
   salvarAlteracao(template: any) {
     if (this.registerForm.valid) {
 
