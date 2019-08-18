@@ -66,15 +66,19 @@ export class EventosComponent implements OnInit {
     }
   }
 
+  UploadImagem(){
+    this.eventoService.postUpload(this.file).subscribe();
+    const nomeArquivo = this.evento.imgUrl.split('\\', 3);
+    this.evento.imgUrl = nomeArquivo[2];
+  }
+
   salvarAlteracao(template: any) {
     if (this.registerForm.valid) {
 
       if(this.modoSalvar === 'post'){
         this.evento = Object.assign({}, this.registerForm.value);
 
-        this.eventoService.postUpload(this.file).subscribe();
-        const nomeArquivo = this.evento.imgUrl.split('\\', 3);
-        this.evento.imgUrl = nomeArquivo[2];
+        this.UploadImagem();
 
         this.eventoService.postEvento(this.evento).subscribe(
           (novoEvento: Evento) => {
@@ -88,6 +92,7 @@ export class EventosComponent implements OnInit {
         );
       } else {
         this.evento = Object.assign({identifyer: this.evento.identifyer}, this.registerForm.value);
+        this.UploadImagem();
         this.eventoService.putEvento(this.evento).subscribe(
           (novoEvento: Evento) => {
             template.hide();
@@ -125,6 +130,7 @@ export class EventosComponent implements OnInit {
     this.modoSalvar = 'put';
     this.openModal(template);
     this.evento = evento;
+    this.evento.imgUrl = '';
     this.registerForm.patchValue(evento);
   }
 
