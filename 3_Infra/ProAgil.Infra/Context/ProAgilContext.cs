@@ -64,10 +64,8 @@ namespace ProAgil.Infra.Context
                     .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
 
-
             });
             //mapeamento para suporte do Identity
-
 
             //Mapeamento dos Contextos
             EntityMapping(modelBuilder);
@@ -102,6 +100,7 @@ namespace ProAgil.Infra.Context
                     .HasMaxLength(50).
                     HasColumnName("Email");
             });
+
             modelBuilder.Entity<Evento>(entity =>
                 {
                     entity.ToTable("Evento").HasKey(e => e.Id);
@@ -135,6 +134,7 @@ namespace ProAgil.Infra.Context
                     entity.ToTable("PalestranteEvento").HasKey(e => e.Id);
                     entity.Property(e => e.identifyer).HasDefaultValueSql("lower(hex(randomblob(16)))");
                 });
+                
             modelBuilder.Entity<Lote>(entity =>
                 {
                     entity.ToTable("Lote").HasKey(e => e.Id);
@@ -153,6 +153,7 @@ namespace ProAgil.Infra.Context
                         HasColumnName("Quantidade");
 
                 });
+                
 
             modelBuilder.Entity<RedeSocial>(entity =>
                 {

@@ -286,3 +286,143 @@ domain
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 2.2.0
 infra
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 2.2.0
+========================================================================
+22 - Configurando o Identity Core na Startup
+
+
+    public class Startup
+	
+	public void ConfigureServices(IServiceCollection services)
+        {
+            //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
+            services.AddDbContext<ProAgilContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            registrandoDependencias(services);
+            //adicionando a documentação dos endpoints
+            services.AddSwaggerGen(options =>
+            {
+                options.DescribeAllEnumsAsStrings();
+                options.DescribeAllParametersInCamelCase();
+                options.SwaggerDoc("v1", new Info { Title = "Documentação", Version = "v1" });
+            });
+
+            //Configuração para Identity , e quem for consumir a API passando por criterio de autenticação
+			//Remove as configurações padroes de autenticação
+            IdentityBuilder builder = services.AddIdentityCore<User>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            });
+			//Configura Os Roles, Users e Assigns do Identity
+            builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
+            builder.AddEntityFrameworkStores<ProAgilContext>();//leva em consideração o seu proprio contexto
+            builder.AddRoleValidator<RoleValidator<Role>>();
+            builder.AddSignInManager<SignInManager<User>>();
+
+			//Configura os filtros para sempre que fizer uma requisição HTTP para alguma controller o requiisitanet deve estar autenticado
+            services.AddMvc(
+                options => {
+                    var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                    options.Filters.Add(new AuthorizeFilter(policy));
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            
+			//Configuração para Identity , e quem for consumir a API passando por criterio de autenticação
+
+            services.AddCors();
+
+        }
+========================================================================
+23- JWT Json Web Tokens ( https://jwt.io/introduction/ ) 
+
+
+
+Funciona de maneira similar ao sensedia, verifica se a requisição tem autenticação para acesso.
+
+
+Estrutura do JWT
+	1- Header
+	2- Payload (Conteudo ou informação)
+	3- Signature (Assinatura)
+	
+	
+Formato de um header
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+Em seguida, esse JSON é codificado em Base64Url para formar a primeira parte do JWT.
+
+
+
+Formato de Payload (Qual autoriazação que vc possui)
+
+{
+  "sub": "1234567890", //Informaçao importante
+  "name": "John Doe",//Nome
+  "admin": true//Role
+}
+
+Signature
+
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)
+  
+  
+  Informa qual foi o algoritmo que foi usado para o envio em Base64
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
