@@ -14,7 +14,7 @@ namespace ProAgil.Domain.ProAgilContext.Commands.Inputs
         public string ImgUrl { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public bool Valid()
+        public void Validate()
         {
             AddNotifications(new ValidationContract()
                  .Requires()
@@ -24,7 +24,6 @@ namespace ProAgil.Domain.ProAgilContext.Commands.Inputs
                  .IsNotNull(DataEvento, "DataEvento", "DataEvento é obrigatório")
                  .HasMinLen(Local, 3, "Local", " Local deve conter pelo menos 3 caracteres")
              );
-            return !this.Invalid;
         }
     }
 }

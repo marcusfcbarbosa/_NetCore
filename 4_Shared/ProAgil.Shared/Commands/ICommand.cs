@@ -1,7 +1,7 @@
 namespace ProAgil.Shared.Commands
 {
-    public interface ICommand 
+    public interface ICommand
     {
-         bool Valid();
+        void Validate();
     }
 }

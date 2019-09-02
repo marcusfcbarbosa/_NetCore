@@ -342,7 +342,6 @@ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 2
 23- JWT Json Web Tokens ( https://jwt.io/introduction/ ) 
 
 
-
 Funciona de maneira similar ao sensedia, verifica se a requisição tem autenticação para acesso.
 
 
@@ -376,9 +375,13 @@ HMACSHA256(
   base64UrlEncode(header) + "." +
   base64UrlEncode(payload),
   secret)
+ 
+Informa qual foi o algoritmo que foi usado para o envio em Base64
   
+========================================================================
+24 - Instalando AutoMapper na api, para uso do Identity  
   
-  Informa qual foi o algoritmo que foi usado para o envio em Base64
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 7.0.0
   
   
 

@@ -54,7 +54,8 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
             try
             {
                 var evento = await _eventoRepository.GetEventoByIdentifier(command.identifyer);
-                if (command.Valid())
+                command.Validate();
+                if (command.Valid)
                 {
                     evento.EditaEvento(command.Local, DateTime.Parse(command.DataEvento) , command.Tema, command.QtdPessoas, command.ImgUrl, command.Telefone, command.Email);
                     _eventoRepository.Edit(evento);
@@ -81,7 +82,8 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
         public async Task<ICommandResult> Handle(DeletaEventoCommand command)
         {
             var evento = await _eventoRepository.GetEventoByIdentifier(command.identifyer);
-            if (command.Valid())
+            command.Validate();
+            if (command.Valid)
             {
                 _eventoRepository.Delete(evento);
                 return new DeletaEventoCommandResult(true, "Deletado");

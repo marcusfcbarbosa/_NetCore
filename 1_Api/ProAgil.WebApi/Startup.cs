@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -72,6 +73,8 @@ namespace ProAgil.WebApi
                         ValidateAudience = false
                     };
                 });
+
+            services.AddAutoMapper();
 
             services.AddMvc(
                 options => {
