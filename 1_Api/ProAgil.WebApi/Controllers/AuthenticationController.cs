@@ -39,9 +39,9 @@ namespace ProAgil.WebApi.Controllers
         }
 
         [HttpGet("GetUser")]
-        public async Task<IActionResult> GetUser(AthenticationUserCommand command)
+        public async Task<IActionResult> GetUser()
         {
-            return Ok(command);
+            return Ok(new AthenticationUserCommand());
         }
 
 
@@ -107,7 +107,7 @@ namespace ProAgil.WebApi.Controllers
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             var tokenDescription = new SecurityTokenDescriptor{
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddHours(1),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds
             };
             var tokenHandler = new JwtSecurityTokenHandler();

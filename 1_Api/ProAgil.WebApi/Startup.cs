@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using ProAgil.Domain.Identity;
 using ProAgil.Domain.ProAgilContext.Handlers;
@@ -54,7 +55,11 @@ namespace ProAgil.WebApi
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 4;
+                
             });
+
+            IdentityModelEventSource.ShowPII = true;
+
             builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
             builder.AddEntityFrameworkStores<ProAgilContext>();//leva em consideração o seu proprio contexto
             builder.AddRoleValidator<RoleValidator<Role>>();

@@ -17,7 +17,7 @@ namespace ProAgil.Infra.Repository
                 _context = context;
         }
         
-        public async Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEvento =false)
+        public async Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEvento = false)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
             .Include(c=>c.RedesSociais);
