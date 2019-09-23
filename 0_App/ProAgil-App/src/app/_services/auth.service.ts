@@ -34,7 +34,6 @@ constructor(private http: HttpClient) {
 
   register(model: User){
     model.context = this._context;
-    model.Name = model.email;
     return this.http.post(`${this.baseURL}register`, model);
 
   }
