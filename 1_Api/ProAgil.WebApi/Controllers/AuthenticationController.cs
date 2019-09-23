@@ -51,7 +51,7 @@ namespace ProAgil.WebApi.Controllers
         {
             try
             {
-                var user = UserAdapter.CommandToDomain(command, "proAgil");
+                var user = UserAdapter.CommandToDomain(command, command.Context);
                 var result = await _userManager.CreateAsync(user, user.PasswordHash);
                 if (result.Succeeded)
                 {
@@ -93,6 +93,7 @@ namespace ProAgil.WebApi.Controllers
             }
         }
 
+    //Proa alguma razao o swagger nao esta habilitando o campo de Header de autenticação
         private async Task<string> GenerateJWTonken(User user)
         {
             var claims = new List<Claim> {

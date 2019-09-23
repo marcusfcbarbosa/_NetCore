@@ -382,14 +382,63 @@ Informa qual foi o algoritmo que foi usado para o envio em Base64
 24 - Instalando AutoMapper na api, para uso do Identity  
   
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 7.0.0
+========================================================================
+25- Adicionar Hedsar personalizado
+
+swashbuckle.aspnetcore 
+
+https://medium.com/@maxamorimdasilva/asp-net-core-swagger-adicionando-header-parameter-na-sua-documenta%C3%A7%C3%A3o-984bfebd1dc7
+
+================================================================================================================================================
+26- Adicionando JWTHelper na camada de apresentaçao angular
+
+usando jwt no angular
+
+https://www.npmjs.com/package/@auth0/angular-jwt
+
+npm i @auth0/angular-jwt
+
+****Dentro do serviço de autenticação
+
+import { JwtHelperService } from "@auth0/angular-jwt";
+ 
+const helper = new JwtHelperService();
+ 
+const decodedToken = helper.decodeToken(myRawToken);
+const expirationDate = helper.getTokenExpirationDate(myRawToken);
+const isExpired = helper.isTokenExpired(myRawToken);
   
   
 
 
+****importando dentro dos módulos (app.module)
 
 
+import { JwtModule } from "@auth0/angular-jwt";
+import { HttpClientModule } from "@angular/common/http";
+ 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
+ 
+@NgModule({
+  bootstrap: [AppComponent],
+  imports: [
+    // ...
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["example.com"],
+        blacklistedRoutes: ["example.com/examplebadroute/"]
+      }
+    })
+  ]
+})
+export class AppModule {}
 
 
+================================================================================================================================================
 
 
 

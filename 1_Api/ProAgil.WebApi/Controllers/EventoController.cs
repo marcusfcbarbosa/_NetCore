@@ -9,6 +9,7 @@ using ProAgil.Domain.ProAgilContext.Commands.Inputs;
 using ProAgil.Domain.ProAgilContext.Handlers;
 using ProAgil.Domain.ProAgilContext.Repositories.Interfaces;
 using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProAgil.WebApi.Controllers
 {

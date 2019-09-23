@@ -17,6 +17,8 @@ namespace ProAgil.Domain.ProAgilContext.Commands.Inputs
 
         public string FullName { get; set; }
 
+        public string Context { get; set; }
+
         public void Validate()
         {
             AddNotifications(new ValidationContract()
@@ -25,6 +27,7 @@ namespace ProAgil.Domain.ProAgilContext.Commands.Inputs
                   .IsEmail(Email, "Email", "Email inválido")
                   .IsNotNull(Password, "Password", "Password é obrigatório")
                   .IsNotNull(FullName, "FullName", "FullName é obrigatório")
+                  .IsNotNull(Context, "Context", "Context é obrigatório")
               );
             
         }

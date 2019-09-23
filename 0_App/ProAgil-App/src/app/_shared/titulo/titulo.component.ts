@@ -12,5 +12,4 @@ export class TituloComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

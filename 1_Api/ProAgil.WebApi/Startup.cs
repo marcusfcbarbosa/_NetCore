@@ -17,7 +17,9 @@ using ProAgil.Domain.ProAgilContext.Handlers;
 using ProAgil.Domain.ProAgilContext.Repositories.Interfaces;
 using ProAgil.Infra.Context;
 using ProAgil.Infra.Repository;
+using ProAgil.WebApi.InfraEstructure;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -45,9 +47,10 @@ namespace ProAgil.WebApi
                 options.DescribeAllEnumsAsStrings();
                 options.DescribeAllParametersInCamelCase();
                 options.SwaggerDoc("v1", new Info { Title = "Documentação", Version = "v1" });
-            });
 
-            //Configuração para Identity , e quem for consumir a API passando por criterio de autenticação
+            });
+            services.AddSwaggerDocumentation();
+
             IdentityBuilder builder = services.AddIdentityCore<User>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -55,42 +58,41 @@ namespace ProAgil.WebApi
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 4;
-                
             });
 
-            IdentityModelEventSource.ShowPII = true;
-
             builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
-            builder.AddEntityFrameworkStores<ProAgilContext>();//leva em consideração o seu proprio contexto
+            builder.AddEntityFrameworkStores<ProAgilContext>();
             builder.AddRoleValidator<RoleValidator<Role>>();
+            builder.AddRoleManager<RoleManager<Role>>();
             builder.AddSignInManager<SignInManager<User>>();
 
 
             //Configurando o JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,//validando pela assinatura da chave do emissor
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
-                    };
-                });
+               .AddJwtBearer(options =>
+               {
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuerSigningKey = true,
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+                            .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                       ValidateIssuer = false,
+                       ValidateAudience = false
+                   };
+               }
+               );
 
-            services.AddAutoMapper();
-
-            services.AddMvc(
-                options => {
-                    var policy = new AuthorizationPolicyBuilder()
+            services.AddMvc(options => {
+                var policy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
                     .Build();
-                    options.Filters.Add(new AuthorizeFilter(policy));
-                })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                options.Filters.Add(new AuthorizeFilter(policy));
+            })
+               .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+               .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling =
+                Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+            services.AddAutoMapper();
             services.AddCors();
 
         }
@@ -126,6 +128,8 @@ namespace ProAgil.WebApi
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -136,8 +140,9 @@ namespace ProAgil.WebApi
             //app.UseHttpsRedirection();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             app.UseStaticFiles();//Para poder trabalhar com imagens, dentro do diretorio wwwroot
-            app.UseStaticFiles(new StaticFileOptions() {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"Resources")),
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
                 RequestPath = "/Resources"
             });
             app.UseMvc();

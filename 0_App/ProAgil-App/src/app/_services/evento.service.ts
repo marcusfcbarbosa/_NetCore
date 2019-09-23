@@ -7,7 +7,7 @@ import { Constants } from './../_util/Constants';
   providedIn: 'root'
 })
 export class EventoService {
-  baseURL = Constants.EVENTO_BASE_URL;
+  baseURL = Constants.EVENTO_BASE_EVENTO;
 
   constructor(private http: HttpClient) {}
 
